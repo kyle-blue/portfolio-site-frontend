@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'Futura';
+  src: local('Futura'), url(./assets/fonts/futura.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Futura Bold';
+  src: local('Futura Bold'), url(./assets/fonts/futura_bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Futura Light';
+  src: local('Futura Light'), url(./assets/fonts/futura_light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Futura Thin';
+  src: local('Futura Thin'), url(./assets/fonts/futura_thin.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Galada';
+  src: local('Galada'), url(./assets/fonts/galada.ttf) format('truetype');
+}
