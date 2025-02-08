@@ -1,0 +1,22 @@
+name: "Push to registry"
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  call-test-workflow:
+    uses: ./.github/workflows/quality-assurance.yaml
+  push_to_registry:
+    runs-on: ubuntu-latest
+    needs: call-test-workflow
+    steps:
+      - uses: actions/checkout@v3
+      - name: Login to GitLab registry
+        uses: docker/login-action@v2
+        with:
+          registry: registry.gitlab.com
+          username: ${{ secrets.GITLAB_USERNAME }}
+          password: ${{ secrets.GITLAB_TOKEN }}
+      - run: docker build --ssh default --target release -t registry.gitlab.com/bigboiblue/kblue-io-registry/web-app-frontend:latest .
+      - run: docker push registry.gitlab.com/bigboiblue/kblue-io-registry/web-app-frontend:latest
