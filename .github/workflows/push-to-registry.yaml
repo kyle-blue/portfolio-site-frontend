@@ -31,5 +31,5 @@ jobs:
           registry: registry.gitlab.com
           username: ${{ secrets.GITLAB_USERNAME }}
           password: ${{ secrets.GITLAB_TOKEN }}
-      - run: docker build --target release -t registry.gitlab.com/bigboiblue/kblue-io-registry/frontend-dev:latest .
+      - run: docker build --target dev -t registry.gitlab.com/bigboiblue/kblue-io-registry/frontend-dev:latest .
       - run: docker push registry.gitlab.com/bigboiblue/kblue-io-registry/frontend-dev:latest
