@@ -23,9 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 
-# IDE
-
-.vscode/
 
 # Yarn v2
 .yarn/*
