@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: call-test-workflow
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Login to GitLab registry
         uses: docker/login-action@v2
         with:
@@ -33,3 +33,13 @@ jobs:
           password: ${{ secrets.GITLAB_TOKEN }}
       - run: docker build --target dev -t registry.gitlab.com/bigboiblue/kblue-io-registry/frontend-dev:latest .
       - run: docker push registry.gitlab.com/bigboiblue/kblue-io-registry/frontend-dev:latest
+  rollout:
+    runs-on: ubuntu-latest
+    container: bitnami/kubectl:1.32.2
+    needs:
+      - push_to_registry
+    steps:
+      - uses: actions/checkout@v4
+      - run: mkdir -p ~/.kube
+      - run: echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
+      - run: kubectl rollout restart deployment/frontend -n app
