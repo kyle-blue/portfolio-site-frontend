@@ -1,11 +1,12 @@
-import React from "react"
+import React from 'react'
 
-interface Props{}
+interface Props {}
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function Root(props: Props) {
-    return(
+    return (
         <>
-            <h1>Hello World!</h1>
+            <h1>Howdy World!</h1>
         </>
     )
 }

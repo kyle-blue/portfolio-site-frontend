@@ -3,7 +3,7 @@ name: "Quality Assurance"
 on:
   pull_request:
     branches: [main]
-  workflow_call:
+  workflow_call: {}
 
 jobs:
   test:
@@ -26,3 +26,4 @@ jobs:
       - run: corepack enable
       - run: yarn
       - run: yarn eslint
+      - run: yarn prettier src --check
