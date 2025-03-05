@@ -22,7 +22,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-
+/.vite
 
 # Yarn v2
 .yarn/*
