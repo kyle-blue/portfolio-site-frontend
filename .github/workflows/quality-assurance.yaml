@@ -26,3 +26,4 @@ jobs:
       - run: corepack enable
       - run: yarn
       - run: yarn eslint
+      - run: yarn prettier src --check

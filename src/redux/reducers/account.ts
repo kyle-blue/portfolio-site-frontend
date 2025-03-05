@@ -9,22 +9,22 @@ interface AccountState {
 }
 
 const initialState: AccountState = {
-    currentAccount: undefined
+    currentAccount: undefined,
 }
 
 export const accountSlice = createSlice({
     name: 'account',
     initialState,
     reducers: {
-        setAccount: (state, {payload}: PayloadAction<CurrentAccount>) => {
+        setAccount: (state, { payload }: PayloadAction<CurrentAccount>) => {
             state.currentAccount = payload
         },
     },
 })
 
-export const {setAccount} = accountSlice.actions
+export const { setAccount } = accountSlice.actions
 export const actions = accountSlice.actions
 export const useAccountSelector = (func: (account: AccountState) => any): any => {
     return useSelector<RootState>((state) => func(state.account))
 }
-export default accountSlice.reducer 
+export default accountSlice.reducer
