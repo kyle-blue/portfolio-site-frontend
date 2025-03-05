@@ -1,9 +1,8 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom'
 
 export function useQuery() {
     return new URLSearchParams(useLocation().search)
 }
-
 
 export function useSetQueryParam(key: string, value: string) {
     const location = useLocation()
