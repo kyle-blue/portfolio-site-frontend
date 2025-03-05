@@ -14,10 +14,10 @@ const config = ({ mode }) => {
         include: "**/*.svg",
       }),
     ],
-
     server: {
       port: 3000,
       host: true,
+      allowedHosts: ["www.kblue-dev.io"],
     },
     test: {
       environment: 'happy-dom'
