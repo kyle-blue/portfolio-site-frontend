@@ -5,7 +5,7 @@ interface Props{}
 export default function Root(props: Props) {
     return(
         <>
-            <h1>Hello World!</h1>
+            <h1>Howdy World!</h1>
         </>
     )
 }
