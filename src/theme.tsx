@@ -30,7 +30,7 @@ export const palette = {
 
 export const muiTheme = createTheme({
     typography: {
-        fontFamily: `"Futura Light", "Roboto", "Helvetica", "Arial", sans-serif`,
+        fontFamily: `"Poppins", "Helvetica", "Arial", sans-serif`,
         fontSize: 14,
     },
     palette: {
@@ -60,7 +60,7 @@ export const muiTheme = createTheme({
         MuiTooltip: {
             styleOverrides: {
                 tooltip: {
-                    fontFamily: `"Futura", "Roboto", "Helvetica", "Arial", sans-serif`,
+                    fontFamily: `"Poppins", "Helvetica", "Arial", sans-serif`,
                 },
             },
         },
@@ -70,7 +70,7 @@ export const muiTheme = createTheme({
 export const GlobalStyle = css`
     body {
         margin: 0;
-        font-family: 'Futura Light', 'Helvetica', sans-serif;
+        font-family: 'Poppins', 'Helvetica', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         overflow-x: hidden;
@@ -83,13 +83,13 @@ export const GlobalStyle = css`
     h4,
     h5,
     h6 {
-        font-family: 'Futura Light', 'Helvetica', sans-serif;
+        font-family: 'Poppins', 'Helvetica', sans-serif;
         color: ${palette.offBlack};
     }
 
     p {
         color: ${palette.offBlack};
-        font-family: 'Futura Light', 'Helvetica', sans-serif;
+        font-family: 'Poppins', 'Helvetica', sans-serif;
     }
 
     code {

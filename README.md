@@ -8,6 +8,8 @@ It is highly recommended to manually `git clone` the `portfolio-site-infrastruct
 
 In the tilt development environment, live reload of all services is configured to look at the specified repos in the `<infrastructure-git-root>/projects`.
 
+Service is exposed on www.kblue-dev.io:30001 in the dev environment
+
 ## Basic commands
 
 - `yarn start` - start vite dev server on port 3000
