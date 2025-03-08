@@ -1,34 +1,34 @@
 @font-face {
-    font-family: 'Futura';
+    font-family: 'Poppins';
     src:
-        local('Futura'),
-        url(./assets/fonts/futura.ttf) format('truetype');
+        local('Poppins'),
+        url(./assets/fonts/Poppins-Regular.ttf) format('truetype');
 }
 
 @font-face {
-    font-family: 'Futura Bold';
+    font-family: 'Poppins Bold';
     src:
-        local('Futura Bold'),
-        url(./assets/fonts/futura_bold.ttf) format('truetype');
+        local('Poppins Bold'),
+        url(./assets/fonts/Poppins-Bold.ttf) format('truetype');
 }
 
 @font-face {
-    font-family: 'Futura Light';
+    font-family: 'Poppins Semi Bold';
     src:
-        local('Futura Light'),
-        url(./assets/fonts/futura_light.ttf) format('truetype');
+        local('Poppins Semi Bold'),
+        url(./assets/fonts/Poppins-SemiBold.ttf) format('truetype');
 }
 
 @font-face {
-    font-family: 'Futura Thin';
+    font-family: 'Poppins Light';
     src:
-        local('Futura Thin'),
-        url(./assets/fonts/futura_thin.ttf) format('truetype');
+        local('Poppins Light'),
+        url(./assets/fonts/Poppins-Light.ttf) format('truetype');
 }
 
 @font-face {
-    font-family: 'Galada';
+    font-family: 'Poppins Thin';
     src:
-        local('Galada'),
-        url(./assets/fonts/galada.ttf) format('truetype');
+        local('Poppins Thin'),
+        url(./assets/fonts/Poppins-Thin.ttf) format('truetype');
 }
