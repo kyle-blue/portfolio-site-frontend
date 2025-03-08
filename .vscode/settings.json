@@ -11,5 +11,6 @@
     "eslint.format.enable": false,
     "[yaml]": {
         "editor.formatOnSave": false
-    }
+    },
+    "eslint.run": "onSave"
 }
