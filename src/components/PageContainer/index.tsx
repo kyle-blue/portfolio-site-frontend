@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { JSX } from 'react'
 import { RootContainer } from './styles'
 import { Spacer } from '../utility/Spacer'
 import OnLoad from './OnLoad'

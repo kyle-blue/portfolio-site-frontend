@@ -1,3 +1,5 @@
+declare let env: any
+
 const devConfig = {
     api: {
         host: 'api.kblue-dev.io',
@@ -20,6 +22,7 @@ let envConfig = prodConfig
 if (import.meta.env.VITE_APP_ENV === 'development') envConfig = devConfig
 
 const combinedConfig = {
+    lastUpdated: env.LAST_UPDATED,
     ...envConfig,
 }
 
