@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import { palette } from '../../theme'
 import homeBackground from '../../assets/images/home-background.png'
+import { Place } from '@mui/icons-material'
 
 export const RootContainer = styled.main`
     position: relative;
@@ -131,4 +132,30 @@ export const HomeHeadingContainer = styled.div`
         font-weight: bold;
         letter-spacing: 4px;
     }
+`
+
+export const ExpertiseContainer = styled.div`
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 100px;
+`
+
+export const Title = styled.h1`
+    text-align: center;
+    color: #ffffff;
+    font-size: 46px;
+    font-family: 'Poppins Semi Bold', sans-serif;
+    font-weight: normal;
+    letter-spacing: 14px;
+    line-height: 95px;
+    text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.8);
+    margin: 0;
+`
+
+export const PlaceIcon = styled(Place)`
+    position: absolute;
+    margin-left: -40px;
 `

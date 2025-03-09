@@ -32,3 +32,17 @@
         local('Poppins Thin'),
         url(./assets/fonts/Poppins-Thin.ttf) format('truetype');
 }
+
+@font-face {
+    font-family: 'Jetbrains Mono';
+    src:
+        local('Jetbrains Mono'),
+        url(./assets/fonts/JetBrainsMono-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Jetbrains Mono Medium';
+    src:
+        local('Jetbrains Mono Medium'),
+        url(./assets/fonts/JetBrainsMono-Medium.ttf) format('truetype');
+}
