@@ -1,6 +1,7 @@
 import React, { JSX } from 'react'
 import { MainContainer, Title, TitleContainer } from './styles'
 import { CenterHorizontalFlex } from '../utility/CenterFlex'
+import { Button, ButtonBase } from '@mui/material'
 
 interface NavigationElement {
     title: JSX.Element | string
@@ -16,9 +17,11 @@ export default function Navbar({ elements }: Props): React.ReactElement {
         <CenterHorizontalFlex style={{ height: 'auto' }}>
             <MainContainer>
                 {elements.map(({ title, action }) => (
-                    <TitleContainer>
-                        <Title onClick={action}>{title}</Title>
-                    </TitleContainer>
+                    <ButtonBase style={{ color: 'rgba(255, 255, 255, 0.2)' }}>
+                        <TitleContainer>
+                            <Title onClick={action}>{title}</Title>
+                        </TitleContainer>
+                    </ButtonBase>
                 ))}
             </MainContainer>
         </CenterHorizontalFlex>
