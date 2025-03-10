@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import { palette } from '../../theme'
 import homeBackground from '../../assets/images/home-background.png'
 import { Place } from '@mui/icons-material'
+import Project from '../../components/Project'
 
 export const RootContainer = styled.main`
     position: relative;
@@ -9,8 +10,11 @@ export const RootContainer = styled.main`
     overflow: hidden;
     width: 100%;
     background: rgba(52, 43, 55, 0.6);
-    background: linear-gradient(180deg, rgba(52, 43, 55, 0.63) -10%, rgba(175, 142, 235, 0.6) 110%);
-    z-index: -3;
+    background: linear-gradient(180deg, rgba(52, 43, 55, 0.43) -10%, rgba(175, 142, 235, 0.4) 110%);
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `
 
 export const UnderBackground = styled.div`
@@ -28,7 +32,7 @@ export const OverBackground = styled.div`
     height: 100%;
     width: 100%;
     background: linear-gradient(90deg, #fff4caff -20%, #9f9f9f00 40%, #9f9f9f00 60%, #fff4caff 120%);
-    opacity: 0.15;
+    opacity: 0.2;
     top: 0;
     z-index: -1;
 `
@@ -42,6 +46,7 @@ export const LastUpdatedText = styled.p`
     position: absolute;
     left: 20px;
     top: 10px;
+    z-index: 1;
 `
 
 const HomeImageOuter = styled.div`
@@ -143,7 +148,7 @@ export const ExpertiseContainer = styled.div`
     gap: 100px;
 `
 
-export const Title = styled.h1`
+export const Title = styled.h1<{ isShadow?: boolean }>`
     text-align: center;
     color: #ffffff;
     font-size: 46px;
@@ -151,11 +156,40 @@ export const Title = styled.h1`
     font-weight: normal;
     letter-spacing: 14px;
     line-height: 95px;
-    text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.8);
+    text-shadow: ${({ isShadow }) => (isShadow ? '0px 0px 15px rgba(0, 0, 0, 0.8)' : 'none')};
     margin: 0;
 `
 
 export const PlaceIcon = styled(Place)`
     position: absolute;
     margin-left: -40px;
+`
+
+export const ProjectsContainer = styled.div`
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    gap: 15px;
+    box-sizing: border-box;
+    margin-top: 50px;
+    border-radius: 12px;
+    overflow: hidden;
+`
+
+export const LowerProjectsContainer = styled.div`
+    width: 100%;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+`
+
+export const GptProject = styled(Project)``
+
+export const PortfolioProject = styled(Project)`
+    flex: 1;
+`
+
+export const CoinProject = styled(Project)`
+    flex: 1;
 `
