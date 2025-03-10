@@ -27,7 +27,7 @@ export const InnerContainer = styled.div`
     width: 100%;
 `
 
-export const Background = styled.div<{ backgroundImage: string }>`
+export const Background = styled.div<{ backgroundImage: string | undefined }>`
     background: ${({ backgroundImage }) => (backgroundImage ? `url(${backgroundImage})` : 'unset')};
     opacity: ${({ backgroundImage }) => (backgroundImage ? 0.1 : 'unset')};
     width: 100%;
@@ -84,37 +84,12 @@ export const Description = styled.p`
     flex: 1;
 `
 
-const labelFontSize = 14
-export const IconsLabel = styled.p`
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: #ffffff;
-    font-size: ${labelFontSize}px;
-    margin-top: ${-labelFontSize - 10}px;
-    font-family: 'Poppins Light', sans-serif;
-    font-weight: normal;
-    vertical-align: top;
-`
-
 export const ButtonsContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 25px;
     flex-wrap: wrap;
-`
-
-export const IconsContainer = styled.div`
-    padding: 10px 30px;
-    box-sizing: border-box;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    gap: 25px;
 `
 
 export const Button = styled(MuiButton)``

@@ -6,7 +6,7 @@ import Project from '../../components/Project'
 
 export const RootContainer = styled.main`
     position: relative;
-    height: 5000px;
+    height: fit-content;
     overflow: hidden;
     width: 100%;
     background: rgba(52, 43, 55, 0.6);
@@ -155,7 +155,6 @@ export const Title = styled.h1<{ isShadow?: boolean }>`
     font-family: 'Poppins Semi Bold', sans-serif;
     font-weight: normal;
     letter-spacing: 14px;
-    line-height: 95px;
     text-shadow: ${({ isShadow }) => (isShadow ? '0px 0px 15px rgba(0, 0, 0, 0.8)' : 'none')};
     margin: 0;
 `
@@ -192,4 +191,10 @@ export const PortfolioProject = styled(Project)`
 
 export const CoinProject = styled(Project)`
     flex: 1;
+`
+
+export const ExperienceContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
 `
