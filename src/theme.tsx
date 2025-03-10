@@ -11,7 +11,7 @@ export const palette = {
     mainOffBlack: 'rgb(68, 61, 61)',
     mainOffWhite: 'rgb(236, 231, 232)',
 
-    secondary: 'rgb(204, 149, 206)',
+    secondary: 'rgb(83, 89, 113)',
     secondaryDark: 'rgb(128, 65, 122)',
     secondaryDarker: 'rgb(97, 49, 92)',
     secondaryLight: 'rgb(223, 180, 224)',

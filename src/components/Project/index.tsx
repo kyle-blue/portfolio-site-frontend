@@ -15,6 +15,7 @@ import {
     InnerContainer,
 } from './styles'
 import { capitalizeFirstLetter } from '../../utils/strings'
+import IconsBox from '../IconsBox'
 
 interface iButton {
     text: string
@@ -41,16 +42,7 @@ export default function Project({ title, description, uses, layout, buttons, cla
                     <Description>{description}</Description>
                 </UpperContainer>
                 <LowerContainer layout={layout}>
-                    <IconsContainer>
-                        <IconsLabel>Uses:</IconsLabel>
-                        {uses.map((icon) => (
-                            <Tooltip key={icon} title={capitalizeFirstLetter(icon)} placement="top" arrow>
-                                <div>
-                                    <AssetIcon name={icon} size={32} />
-                                </div>
-                            </Tooltip>
-                        ))}
-                    </IconsContainer>
+                    <IconsBox icons={uses} />
                     <Spacer />
                     <ButtonsContainer>
                         {buttons.map(({ text, action }) => (

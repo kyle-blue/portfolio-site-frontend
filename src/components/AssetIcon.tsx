@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import react from 'react'
+import React from 'react'
 
 import AwsIcon from '../assets/svg/aws.svg'
 import CircleciIcon from '../assets/svg/circleci.svg'
@@ -20,6 +20,9 @@ import PythonIcon from '../assets/svg/python.svg'
 import ReactIcon from '../assets/svg/react.svg'
 import RustIcon from '../assets/svg/rust.svg'
 import TypescriptIcon from '../assets/svg/typescript.svg'
+import DatastoreIcon from '../assets/svg/datastore.svg'
+import VueIcon from '../assets/svg/vue.svg'
+import MoreIcon from '../assets/svg/more.svg'
 import { Apps } from '@mui/icons-material'
 
 function getIconByName(name: string) {
@@ -30,6 +33,8 @@ function getIconByName(name: string) {
             return CircleciIcon
         case 'css3':
             return Css3Icon
+        case 'datastore':
+            return DatastoreIcon
         case 'docker':
             return DockerIcon
         case 'elasticsearch':
@@ -62,6 +67,10 @@ function getIconByName(name: string) {
             return RustIcon
         case 'typescript':
             return TypescriptIcon
+        case 'vue':
+            return VueIcon
+        case 'more':
+            return MoreIcon
         default:
             return Apps
     }
