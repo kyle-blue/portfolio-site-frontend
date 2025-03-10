@@ -24,6 +24,9 @@ import gptOverlay from '../../assets/images/gpt-overlay.png'
 import coinOverlay from '../../assets/images/coin-overlay.png'
 import portfolioOverlay from '../../assets/images/portfolio-overlay.png'
 import Experience from '../../components/Experience'
+import { TextField } from '@mui/material'
+import { palette } from '../../theme'
+import Footer from '../../components/Footer'
 
 interface Props {}
 
@@ -352,6 +355,35 @@ export default function Root(props: Props) {
                         ]}
                     />
                 </ExperienceContainer>
+                <MarginSpacer size={150} />
+                <Title>CONTACT</Title>
+                <MarginSpacer size={50} />
+                <TextField
+                    InputLabelProps={{ shrink: true }}
+                    color={'primary'}
+                    style={{ width: 900 }}
+                    variant="outlined"
+                    label="email"
+                    placeholder="john.doe@gmail.com"
+                />
+                <MarginSpacer size={30} />
+                <TextField
+                    color={'primary'}
+                    slotProps={{
+                        inputLabel: {
+                            shrink: true,
+                        },
+                    }}
+                    multiline
+                    style={{ width: 900 }}
+                    rows={9}
+                    variant="outlined"
+                    label="message"
+                    placeholder="We have a position opening at x ..."
+                />
+
+                <MarginSpacer size={80} />
+                <Footer />
             </RootContainer>
         </PageContainer>
     )

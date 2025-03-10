@@ -1,6 +1,7 @@
 import { createTheme } from '@mui/material'
 import { css } from '@emotion/react'
 import { darken, setOpacity } from './utils/colour'
+import { fontFamily } from '@mui/system'
 
 export const palette = {
     main: 'rgb(255, 255, 255)',
@@ -33,6 +34,7 @@ export const muiTheme = createTheme({
     typography: {
         fontFamily: `"Poppins Semi Bold", "Helvetica", "Arial", sans-serif`,
         fontSize: 14,
+        color: palette.white,
     },
     palette: {
         mode: 'light',
@@ -83,6 +85,35 @@ export const muiTheme = createTheme({
                 },
             },
         },
+        MuiTextField: {
+            styleOverrides: {
+                root: {
+                    background: 'rgba(0, 0, 0, 0.15)',
+                    color: palette.offWhite,
+                    borderRadius: '5px',
+                    '& input': {
+                        color: palette.offWhite,
+                        fontFamily: '"Poppins Light", sans-serif',
+                    },
+                    '& label': {
+                        color: palette.offWhite,
+                        fontFamily: '"Poppins Light", sans-serif',
+                    },
+                    '& textarea': {
+                        color: palette.offWhite,
+                        fontFamily: '"Poppins Light", sans-serif',
+                    },
+                    '& .MuiOutlinedInput-notchedOutline': {
+                        border: `0px solid rgba(0, 0, 0, 0.2)`,
+                    },
+                    '& .Mui-focused': {
+                        '& .MuiOutlinedInput-notchedOutline': {
+                            border: `2px solid rgba(255, 255, 255, 0.3)`,
+                        },
+                    },
+                },
+            },
+        },
     },
 })
 
@@ -107,8 +138,8 @@ export const GlobalStyle = css`
     }
 
     p {
-        color: ${palette.offBlack};
-        font-family: 'Poppins', 'Helvetica', sans-serif;
+        color: ${palette.offWhite};
+        font-family: 'Poppins Light', 'Helvetica', sans-serif;
     }
 
     code {
