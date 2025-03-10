@@ -113,6 +113,7 @@ export const Title = styled.h1`
     font-weight: normal;
     align-self: self-start;
     text-align: left;
+    letter-spacing: 4px;
 `
 export const Subtitle = styled.h2`
     margin: 0;
@@ -136,5 +137,6 @@ export const Description = styled.p`
 
 export const DescriptionContainer = styled.div`
     height: ${descriptionHeight}px;
+    mask-image: linear-gradient(180deg, #000 60%, transparent);
     -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
 `
