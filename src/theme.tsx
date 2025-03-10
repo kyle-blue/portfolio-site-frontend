@@ -1,8 +1,9 @@
 import { createTheme } from '@mui/material'
 import { css } from '@emotion/react'
+import { darken, setOpacity } from './utils/colour'
 
 export const palette = {
-    main: 'rgb(199, 126, 126)',
+    main: 'rgb(255, 255, 255)',
     mainDark: 'rgb(173, 94, 94)',
     mainDarker: 'rgb(129, 66, 66)',
     mainLight: 'rgb(236, 168, 168)',
@@ -30,7 +31,7 @@ export const palette = {
 
 export const muiTheme = createTheme({
     typography: {
-        fontFamily: `"Poppins", "Helvetica", "Arial", sans-serif`,
+        fontFamily: `"Poppins Semi Bold", "Helvetica", "Arial", sans-serif`,
         fontSize: 14,
     },
     palette: {
@@ -61,6 +62,24 @@ export const muiTheme = createTheme({
             styleOverrides: {
                 tooltip: {
                     fontFamily: `"Poppins", "Helvetica", "Arial", sans-serif`,
+                    fontSize: '14px',
+                    background: darken(palette.offWhite, 30),
+                    padding: '8px 15px',
+                    boxSizing: 'border-box',
+                    color: palette.offBlack,
+                },
+                arrow: {
+                    color: darken(palette.offWhite, 30),
+                },
+            },
+        },
+        MuiButton: {
+            styleOverrides: {
+                outlinedPrimary: {
+                    border: '1px solid rgba(255, 255, 255, 0.35)',
+                    padding: '8px 30px',
+                    borderRadius: '8px',
+                    boxShadow: 'border-box',
                 },
             },
         },

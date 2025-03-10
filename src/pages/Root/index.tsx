@@ -1,13 +1,17 @@
-import React from 'react'
 import PageContainer from '../../components/PageContainer'
 import Navbar from '../../components/Navbar'
 import {
+    CoinProject,
     ExpertiseContainer,
+    GptProject,
     HomeHeadingContainer,
     HomeImage,
     LastUpdatedText,
+    LowerProjectsContainer,
     OverBackground,
     PlaceIcon,
+    PortfolioProject,
+    ProjectsContainer,
     RootContainer,
     Title,
     UnderBackground,
@@ -15,7 +19,9 @@ import {
 import config from '../../config'
 import ExpertiseColumn from '../../components/ExpertiseColumn'
 import { MarginSpacer } from '../../components/utility/Spacer'
-import { Place } from '@mui/icons-material'
+import gptOverlay from '../../assets/images/gpt-overlay.png'
+import coinOverlay from '../../assets/images/coin-overlay.png'
+import portfolioOverlay from '../../assets/images/portfolio-overlay.png'
 
 interface Props {}
 
@@ -59,7 +65,7 @@ export default function Root(props: Props) {
                 </HomeHeadingContainer>
 
                 <MarginSpacer size={200} />
-                <Title>EXPERTISE</Title>
+                <Title isShadow>EXPERTISE</Title>
                 <ExpertiseContainer>
                     <ExpertiseColumn
                         title={'FRONTEND'}
@@ -120,6 +126,74 @@ export default function Root(props: Props) {
                         ]}
                     />
                 </ExpertiseContainer>
+
+                <MarginSpacer size={200} />
+                <Title>RECENT PROJECTS</Title>
+                <ProjectsContainer>
+                    <GptProject
+                        title={'MINI GPT'}
+                        description={'Simple GPT chatbot with approximately 10 million parameters, trained on the Common Crawl dataset.'}
+                        uses={['python', 'nodejs', 'react', 'postgres']}
+                        layout={'wide'}
+                        backgroundImage={gptOverlay}
+                        buttons={[
+                            {
+                                text: 'VIDEO',
+                                action: () => {},
+                            },
+                            {
+                                text: 'GITHUB',
+                                action: () => {},
+                            },
+                            {
+                                text: 'GO TO SITE',
+                                action: () => {},
+                            },
+                        ]}
+                    />
+                    <LowerProjectsContainer>
+                        <PortfolioProject
+                            title={'PORTFOLIO SITE'}
+                            description={
+                                '(This !) - Responsive, mobile friendly React portfolio site with rust tcp http backend (made from scratch as a showcase) and scalable k8s archetecture.'
+                            }
+                            uses={['rust', 'react', 'kubernetes', 'docker', 'helm']}
+                            layout={'tall'}
+                            backgroundImage={portfolioOverlay}
+                            buttons={[
+                                {
+                                    text: 'VIDEO',
+                                    action: () => {},
+                                },
+                                {
+                                    text: 'GITHUB',
+                                    action: () => {},
+                                },
+                            ]}
+                        />
+                        <CoinProject
+                            title={'MINI COIN'}
+                            description={'Experimental cryptocurrency minted on the Etherium (ERC-20) network that uses proof-of-stake.'}
+                            uses={['python', 'nodejs', 'react', 'postgres']}
+                            layout={'tall'}
+                            backgroundImage={coinOverlay}
+                            buttons={[
+                                {
+                                    text: 'VIDEO',
+                                    action: () => {},
+                                },
+                                {
+                                    text: 'GITHUB',
+                                    action: () => {},
+                                },
+                                {
+                                    text: 'BLOCKCHAIN',
+                                    action: () => {},
+                                },
+                            ]}
+                        />
+                    </LowerProjectsContainer>
+                </ProjectsContainer>
             </RootContainer>
         </PageContainer>
     )
