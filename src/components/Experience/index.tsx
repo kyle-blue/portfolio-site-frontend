@@ -3,7 +3,6 @@ import {
     MainContainer,
     JobBox,
     HorizontalLine,
-    HorizontalLineContainer,
     DateContainer,
     VerticalLineContainer,
     VerticalLine,
@@ -36,7 +35,7 @@ export default function Experience({ jobs }: Props): React.ReactElement {
         <MainContainer numElements={jobs.length}>
             {jobs.map((job, i) => (
                 <>
-                    <JobBox num={i}>
+                    <JobBox num={i} animateOnce animateIn="fadeInTop">
                         <Title>{job.title}</Title>
                         <Subtitle>{job.subtitle}</Subtitle>
                         <IconsBox icons={job.uses} showLabel={false} width={350} />
@@ -48,18 +47,18 @@ export default function Experience({ jobs }: Props): React.ReactElement {
                             MORE INFO
                         </Button>
                     </JobBox>
-                    <HorizontalLineContainer num={i}></HorizontalLineContainer>
-                    <DateContainer num={i}>
+                    <HorizontalLine num={i} animateOnce animateIn="fadeInTop" />
+                    <DateContainer num={i} animateOnce animateIn="fadeInTop">
                         <p>
                             {job.startDate} - {job.endDate}
                         </p>
                     </DateContainer>
-                    <CircleContainer num={i}>
+                    <CircleContainer num={i} animateOnce animateIn="fadeInTop">
                         <Circle />
                     </CircleContainer>
                 </>
             ))}
-            <VerticalLineContainer numRows={jobs.length}>
+            <VerticalLineContainer numRows={jobs.length} animateOnce animateIn="fadeInTop">
                 <VerticalLine />
             </VerticalLineContainer>
         </MainContainer>

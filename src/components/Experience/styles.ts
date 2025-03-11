@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import ScrollAnimation from 'react-animate-on-scroll'
 
 const rowHeight = 270
 const jobBoxHeight = 350
@@ -13,7 +14,7 @@ export const MainContainer = styled.div<{ numElements: number }>`
     margin-bottom: ${jobBoxHeight - rowHeight}px;
 `
 
-export const JobBox = styled.div<{ num: number }>`
+export const JobBox = styled(ScrollAnimation)<{ num: number }>`
     grid-column: ${({ num }) => (num % 2 == 0 ? 1 : 5)} / span 1;
     grid-row: ${({ num }) => num + 1} / span 1;
     border-radius: 14px;
@@ -28,7 +29,7 @@ export const JobBox = styled.div<{ num: number }>`
     overflow: hidden;
 `
 
-export const HorizontalLineContainer = styled.div<{ num: number }>`
+export const HorizontalLine = styled(ScrollAnimation)<{ num: number }>`
     grid-column: ${({ num }) => (num % 2 == 0 ? 2 : 4)} / span 1;
     grid-row: ${({ num }) => num + 1} / span 1;
 
@@ -40,7 +41,7 @@ export const HorizontalLineContainer = styled.div<{ num: number }>`
     border-bottom: 2px dashed rgba(255, 255, 255, 0.5);
 `
 
-export const DateContainer = styled.div<{ num: number }>`
+export const DateContainer = styled(ScrollAnimation)<{ num: number }>`
     grid-column: ${({ num }) => (num % 2 == 0 ? 4 : 2)} / span 1;
     grid-row: ${({ num }) => num + 1} / span 1;
 
@@ -65,7 +66,7 @@ export const DateContainer = styled.div<{ num: number }>`
     }
 `
 
-export const VerticalLineContainer = styled.div<{ numRows: number }>`
+export const VerticalLineContainer = styled(ScrollAnimation)<{ numRows: number }>`
     margin-top: ${(jobBoxHeight - rowHeight) / 2}px;
     grid-column: 3 / span 1;
     grid-row: 1 / span ${({ numRows }) => numRows};
@@ -93,7 +94,7 @@ export const Circle = styled.div`
     margin-top: auto;
     margin-bottom: auto;
 `
-export const CircleContainer = styled.div<{ num: number }>`
+export const CircleContainer = styled(ScrollAnimation)<{ num: number }>`
     grid-column: 3 / span 1;
     grid-row: ${({ num }) => num + 1} / span 1;
 

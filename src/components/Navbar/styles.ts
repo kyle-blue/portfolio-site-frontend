@@ -29,6 +29,8 @@ export const Title = styled.h3`
 export const MainContainer = styled.div`
     height: 80px;
     display: flex;
+    position: relative;
+    z-index: 3;
 `
 
 export const TitleContainer = styled.div`
