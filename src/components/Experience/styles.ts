@@ -88,7 +88,7 @@ export const VerticalLine = styled.div`
 export const Circle = styled.div`
     height: 40px;
     width: 40px;
-    background-color: #b9b9b9;
+    background-color: #ffffff;
     border-radius: 50%;
     margin-top: auto;
     margin-bottom: auto;
@@ -118,7 +118,7 @@ export const Title = styled.h1`
 export const Subtitle = styled.h2`
     margin: 0;
     color: #ffffff;
-    font-size: 16px;
+    font-size: 14px;
     font-family: 'Poppins', sans-serif;
     font-weight: normal;
     margin-bottom: 15px;
