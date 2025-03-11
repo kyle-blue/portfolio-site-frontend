@@ -21,29 +21,41 @@ import gptOverlay from '../../assets/images/gpt-overlay.png'
 import coinOverlay from '../../assets/images/coin-overlay.png'
 import portfolioOverlay from '../../assets/images/portfolio-overlay.png'
 import Experience from '../../components/Experience'
-import { TextField } from '@mui/material'
+import { Button, TextField } from '@mui/material'
 import Footer from '../../components/Footer'
+import { useNavigate } from 'react-router-dom'
+import { Paths } from '../../Routes'
 
 interface Props {}
 
+function scrollToId(id: string) {
+    let element = document.getElementById(id)
+
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+}
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function Root(props: Props) {
+    const navigate = useNavigate()
+
     return (
         <PageContainer>
             <UnderBackground />
             <RootContainer>
                 <Navbar
                     elements={[
-                        { title: 'home', action: () => {} },
-                        { title: 'expertise', action: () => {} },
-                        { title: 'projects', action: () => {} },
-                        { title: 'experience', action: () => {} },
-                        { title: 'contact', action: () => {} },
+                        { title: 'home', action: () => scrollToId('home') },
+                        { title: 'expertise', action: () => scrollToId('expertise') },
+                        { title: 'projects', action: () => scrollToId('projects') },
+                        { title: 'experience', action: () => scrollToId('experience') },
+                        { title: 'contact', action: () => scrollToId('contact') },
                     ]}
                 />
                 <HomeImage />
 
-                <HomeHeadingContainer>
+                <HomeHeadingContainer id="home">
                     <h1>
                         KYLE
                         <br />
@@ -64,7 +76,7 @@ export default function Root(props: Props) {
                 </HomeHeadingContainer>
 
                 <MarginSpacer size={100} />
-                <Title>EXPERTISE</Title>
+                <Title id="expertise">EXPERTISE</Title>
                 <ExpertiseContainer>
                     <ExpertiseColumn
                         title={'FRONTEND'}
@@ -127,26 +139,26 @@ export default function Root(props: Props) {
                 </ExpertiseContainer>
 
                 <MarginSpacer size={80} />
-                <Title>RECENT PROJECTS</Title>
+                <Title id="projects">RECENT PROJECTS</Title>
                 <ProjectsContainer>
                     <GptProject
-                        title={'MINI GPT'}
-                        description={'Simple GPT chatbot with approximately 10 million parameters, trained on the Common Crawl dataset.'}
+                        title={'MINI GPT - [IN PROGRESS]'}
+                        description={'Simple GPT chatbot trained on the Common Crawl dataset.'}
                         uses={['python', 'nodejs', 'react', 'postgres']}
                         layout={'wide'}
                         backgroundImage={gptOverlay}
                         buttons={[
                             {
                                 text: 'VIDEO',
-                                action: () => {},
+                                action: () => navigate(Paths.IN_PROGRESS),
                             },
                             {
                                 text: 'GITHUB',
-                                action: () => {},
+                                action: () => navigate(Paths.IN_PROGRESS),
                             },
                             {
                                 text: 'GO TO SITE',
-                                action: () => {},
+                                action: () => navigate(Paths.IN_PROGRESS),
                             },
                         ]}
                     />
@@ -162,16 +174,16 @@ export default function Root(props: Props) {
                             buttons={[
                                 {
                                     text: 'VIDEO',
-                                    action: () => {},
+                                    action: () => navigate(Paths.IN_PROGRESS),
                                 },
                                 {
                                     text: 'GITHUB',
-                                    action: () => {},
+                                    action: () => (window.location.href = 'https://github.com/kyle-blue/portfolio-site-infrastructure'),
                                 },
                             ]}
                         />
                         <CoinProject
-                            title={'MINI COIN'}
+                            title={'MINI COIN - [IN PROGRESS]'}
                             description={'Experimental cryptocurrency minted on the Etherium (ERC-20) network that uses proof-of-stake.'}
                             uses={['python', 'nodejs', 'react', 'postgres']}
                             layout={'tall'}
@@ -179,15 +191,15 @@ export default function Root(props: Props) {
                             buttons={[
                                 {
                                     text: 'VIDEO',
-                                    action: () => {},
+                                    action: () => navigate(Paths.IN_PROGRESS),
                                 },
                                 {
                                     text: 'GITHUB',
-                                    action: () => {},
+                                    action: () => navigate(Paths.IN_PROGRESS),
                                 },
                                 {
                                     text: 'BLOCKCHAIN',
-                                    action: () => {},
+                                    action: () => navigate(Paths.IN_PROGRESS),
                                 },
                             ]}
                         />
@@ -195,7 +207,7 @@ export default function Root(props: Props) {
                 </ProjectsContainer>
 
                 <MarginSpacer size={80} />
-                <Title>
+                <Title id="experience">
                     PROFESSIONAL
                     <br />
                     EXPERIENCE
@@ -350,7 +362,7 @@ export default function Root(props: Props) {
                     />
                 </ExperienceContainer>
                 <MarginSpacer size={80} />
-                <Title>CONTACT</Title>
+                <Title id="contact">CONTACT</Title>
                 <MarginSpacer size={30} />
                 <TextField
                     slotProps={{
@@ -364,7 +376,7 @@ export default function Root(props: Props) {
                     label="email"
                     placeholder="john.doe@gmail.com"
                 />
-                <MarginSpacer size={30} />
+                <MarginSpacer size={20} />
                 <TextField
                     color={'primary'}
                     slotProps={{
@@ -379,6 +391,10 @@ export default function Root(props: Props) {
                     label="message"
                     placeholder="We have a position opening at x ..."
                 />
+                <MarginSpacer size={20} />
+                <Button variant="contained" color="secondary" style={{ width: 150 }}>
+                    SEND
+                </Button>
 
                 <MarginSpacer size={80} />
                 <Footer />
