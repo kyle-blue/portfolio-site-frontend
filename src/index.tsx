@@ -1,8 +1,8 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import App from './App'
 import Axios from 'axios'
+import 'animate.css'
 
 // Stop axios throwing
 Axios.defaults.validateStatus = () => true

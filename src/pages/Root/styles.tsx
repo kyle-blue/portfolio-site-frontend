@@ -31,6 +31,7 @@ const HomeImageOuter = styled.div`
     height: 0;
     width: 100%;
     overflow: visible;
+    animation-duration: 1s;
 `
 const HomeImageInner = styled.div`
     width: 100%;
@@ -45,8 +46,8 @@ const HomeImageInner = styled.div`
     height: 1080px;
 `
 
-export const HomeImage = () => (
-    <HomeImageOuter>
+export const HomeImage = ({ className }: { className?: string }) => (
+    <HomeImageOuter className={className}>
         <HomeImageInner />
     </HomeImageOuter>
 )
@@ -61,7 +62,7 @@ export const HomeHeadingContainer = styled.div`
     flex-direction: column;
     text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.8);
 
-    & > h1 {
+    & h1 {
         color: #ffffff;
         font-size: 85px;
         font-family: 'Poppins Semi Bold', sans-serif;
@@ -70,7 +71,7 @@ export const HomeHeadingContainer = styled.div`
         line-height: 95px;
         margin: 0;
     }
-    & > h2 {
+    & h2 {
         color: #ffffff;
         font-size: 24px;
         font-family: 'Poppins', sans-serif;
@@ -81,7 +82,7 @@ export const HomeHeadingContainer = styled.div`
             font-weight: bold;
         }
     }
-    & > h3 {
+    & h3 {
         color: #ffffff;
         font-size: 16px;
         font-family: 'Poppins Thin', sans-serif;
@@ -94,7 +95,7 @@ export const HomeHeadingContainer = styled.div`
         }
     }
 
-    & > h4 {
+    & h4 {
         color: #ffffff;
         font-size: 15px;
         font-family: 'Poppins Thin', sans-serif;
@@ -107,7 +108,7 @@ export const HomeHeadingContainer = styled.div`
             font-weight: bold;
         }
     }
-    & > h5 {
+    & h5 {
         color: #ffffff;
         font-size: 15px;
         font-family: 'Poppins Semi Bold', sans-serif;
