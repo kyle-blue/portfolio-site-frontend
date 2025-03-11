@@ -17,11 +17,13 @@ export default function Navbar({ elements }: Props): React.ReactElement {
         <CenterHorizontalFlex style={{ height: 'auto' }}>
             <MainContainer>
                 {elements.map(({ title, action }) => (
-                    <ButtonBase style={{ color: 'rgba(255, 255, 255, 0.2)' }}>
-                        <TitleContainer>
-                            <Title onClick={action}>{title}</Title>
-                        </TitleContainer>
-                    </ButtonBase>
+                    <div onClick={action}>
+                        <ButtonBase style={{ color: 'rgba(255, 255, 255, 0.2)' }}>
+                            <TitleContainer>
+                                <Title>{title}</Title>
+                            </TitleContainer>
+                        </ButtonBase>
+                    </div>
                 ))}
             </MainContainer>
         </CenterHorizontalFlex>
