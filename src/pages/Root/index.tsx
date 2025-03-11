@@ -7,9 +7,7 @@ import {
     GptProject,
     HomeHeadingContainer,
     HomeImage,
-    LastUpdatedText,
     LowerProjectsContainer,
-    OverBackground,
     PlaceIcon,
     PortfolioProject,
     ProjectsContainer,
@@ -17,7 +15,6 @@ import {
     Title,
     UnderBackground,
 } from './styles'
-import config from '../../config'
 import ExpertiseColumn from '../../components/ExpertiseColumn'
 import { MarginSpacer } from '../../components/utility/Spacer'
 import gptOverlay from '../../assets/images/gpt-overlay.png'
@@ -25,7 +22,6 @@ import coinOverlay from '../../assets/images/coin-overlay.png'
 import portfolioOverlay from '../../assets/images/portfolio-overlay.png'
 import Experience from '../../components/Experience'
 import { TextField } from '@mui/material'
-import { palette } from '../../theme'
 import Footer from '../../components/Footer'
 
 interface Props {}
@@ -34,7 +30,6 @@ interface Props {}
 export default function Root(props: Props) {
     return (
         <PageContainer>
-            <LastUpdatedText>LAST UPDATED {config.lastUpdated}</LastUpdatedText>
             <UnderBackground />
             <RootContainer>
                 <Navbar
@@ -46,7 +41,6 @@ export default function Root(props: Props) {
                         { title: 'contact', action: () => {} },
                     ]}
                 />
-                <OverBackground />
                 <HomeImage />
 
                 <HomeHeadingContainer>
@@ -69,8 +63,8 @@ export default function Root(props: Props) {
                     </h5>
                 </HomeHeadingContainer>
 
-                <MarginSpacer size={200} />
-                <Title isShadow>EXPERTISE</Title>
+                <MarginSpacer size={100} />
+                <Title>EXPERTISE</Title>
                 <ExpertiseContainer>
                     <ExpertiseColumn
                         title={'FRONTEND'}
@@ -132,7 +126,7 @@ export default function Root(props: Props) {
                     />
                 </ExpertiseContainer>
 
-                <MarginSpacer size={200} />
+                <MarginSpacer size={80} />
                 <Title>RECENT PROJECTS</Title>
                 <ProjectsContainer>
                     <GptProject
@@ -200,19 +194,19 @@ export default function Root(props: Props) {
                     </LowerProjectsContainer>
                 </ProjectsContainer>
 
-                <MarginSpacer size={200} />
+                <MarginSpacer size={80} />
                 <Title>
                     PROFESSIONAL
                     <br />
                     EXPERIENCE
                 </Title>
-                <MarginSpacer size={50} />
+                <MarginSpacer size={30} />
                 <ExperienceContainer>
                     <Experience
                         jobs={[
                             {
                                 title: 'NETACEA',
-                                subtitle: '[BOT MITIGATION]\nFULL STACK SOFTWARE ENGINEER',
+                                subtitle: '[BOT MITIGATION] - FULL STACK SOFTWARE ENGINEER',
                                 uses: ['javascript', 'typescript', 'vue', 'nodejs', 'python', 'postgres', 'aws', 'docker'],
                                 startDate: 'July 2021',
                                 endDate: 'June 2022',
@@ -250,7 +244,7 @@ export default function Root(props: Props) {
                             },
                             {
                                 title: 'PASSFORT (MOODYS)',
-                                subtitle: '[KYC]\nFULL STACK SOFTWARE ENGINEER',
+                                subtitle: '[KYC] - FULL STACK SOFTWARE ENGINEER',
                                 uses: [
                                     'javascript',
                                     'typescript',
@@ -335,7 +329,7 @@ export default function Root(props: Props) {
                             },
                             {
                                 title: 'RoEx',
-                                subtitle: '[AI MUSIC STARTUP]\nFULL STACK SOFTWARE ENGINEER',
+                                subtitle: '[AI MUSIC STARTUP] - FULL STACK SOFTWARE ENGINEER',
                                 uses: ['javascript', 'typescript', 'react', 'python', 'nodejs', 'datastore', 'gcp', 'docker'],
                                 startDate: 'April 2024',
                                 endDate: 'January 2025',
@@ -355,11 +349,15 @@ export default function Root(props: Props) {
                         ]}
                     />
                 </ExperienceContainer>
-                <MarginSpacer size={150} />
+                <MarginSpacer size={80} />
                 <Title>CONTACT</Title>
-                <MarginSpacer size={50} />
+                <MarginSpacer size={30} />
                 <TextField
-                    InputLabelProps={{ shrink: true }}
+                    slotProps={{
+                        inputLabel: {
+                            shrink: true,
+                        },
+                    }}
                     color={'primary'}
                     style={{ width: 900 }}
                     variant="outlined"

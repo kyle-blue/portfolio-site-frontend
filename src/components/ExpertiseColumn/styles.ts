@@ -18,7 +18,6 @@ export const Title = styled.h1`
     font-weight: normal;
     letter-spacing: 6px;
     text-align: center;
-    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 `
 
 export const Subtitle = styled.h2`
@@ -27,7 +26,6 @@ export const Subtitle = styled.h2`
     font-family: 'Poppins light', sans-serif;
     font-weight: normal;
     text-align: center;
-    text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
 `
 
 export const RowText = styled.p`
@@ -37,7 +35,6 @@ export const RowText = styled.p`
     font-family: 'Jetbrains Mono Medium', sans-serif;
     font-weight: normal;
     text-align: center;
-    text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
     white-space: pre-wrap;
 `
 export const RowContainer = styled.div`

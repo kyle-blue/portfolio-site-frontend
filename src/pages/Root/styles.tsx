@@ -1,5 +1,4 @@
 import styled from '@emotion/styled'
-import { palette } from '../../theme'
 import homeBackground from '../../assets/images/home-background.png'
 import { Place } from '@mui/icons-material'
 import Project from '../../components/Project'
@@ -9,8 +8,8 @@ export const RootContainer = styled.main`
     height: fit-content;
     overflow: hidden;
     width: 100%;
-    background: rgba(52, 43, 55, 0.6);
-    background: linear-gradient(180deg, rgba(52, 43, 55, 0.43) -10%, rgba(175, 142, 235, 0.4) 110%);
+    /* background: rgba(52, 43, 55, 0.6); */
+    background: linear-gradient(180deg, rgba(37, 197, 130, 0.2) -10%, rgba(210, 182, 236, 0.3) 110%);
     z-index: 0;
     display: flex;
     flex-direction: column;
@@ -23,30 +22,8 @@ export const UnderBackground = styled.div`
     height: 1200px;
     width: 100%;
     background: rgb(121, 173, 157);
-    background: linear-gradient(180deg, rgba(52, 43, 55, 1) 0%, rgba(121, 173, 157, 1) 100%);
+    background: linear-gradient(180deg, #a3659b 0%, #997cbe 100%);
     z-index: -4;
-`
-
-export const OverBackground = styled.div`
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: linear-gradient(90deg, #fff4caff -20%, #9f9f9f00 40%, #9f9f9f00 60%, #fff4caff 120%);
-    opacity: 0.2;
-    top: 0;
-    z-index: -1;
-`
-
-export const LastUpdatedText = styled.p`
-    font-family: 'Poppins Thin', sans-serif;
-    letter-spacing: 5px;
-    color: ${palette.offWhite};
-    font-weight: bold;
-    font-size: 13px;
-    position: absolute;
-    left: 20px;
-    top: 10px;
-    z-index: 1;
 `
 
 const HomeImageOuter = styled.div`

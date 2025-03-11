@@ -65,13 +65,13 @@ export const muiTheme = createTheme({
                 tooltip: {
                     fontFamily: `"Poppins", "Helvetica", "Arial", sans-serif`,
                     fontSize: '14px',
-                    background: darken(palette.offWhite, 30),
+                    background: palette.offWhite,
                     padding: '8px 15px',
                     boxSizing: 'border-box',
                     color: palette.offBlack,
                 },
                 arrow: {
-                    color: darken(palette.offWhite, 30),
+                    color: palette.offWhite,
                 },
             },
         },
