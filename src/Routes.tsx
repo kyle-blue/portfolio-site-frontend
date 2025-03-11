@@ -1,15 +1,19 @@
 import { createBrowserRouter } from 'react-router-dom'
 import Root from './pages/Root'
+import NotFound from './pages/NotFound'
 
 export enum Paths {
-    LOGIN = 'login',
-    SIGN_UP = 'sign-up',
-    PROJECTS = 'projects',
+    ROOT = '/',
+    NOT_FOUND = '*',
 }
 
 export const AppRouter = createBrowserRouter([
     {
-        path: '/',
+        path: Paths.ROOT,
         element: <Root />,
+    },
+    {
+        path: Paths.NOT_FOUND,
+        element: <NotFound />,
     },
 ])
