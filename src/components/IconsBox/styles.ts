@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { mediaQueriesIncludingDefault } from '../../utils/mobile'
 
 const labelFontSize = 14
 export const IconsLabel = styled.p`
@@ -6,21 +7,30 @@ export const IconsLabel = styled.p`
     top: 0;
     left: 0;
     color: #ffffff;
-    font-size: ${labelFontSize}px;
-    margin-top: ${-labelFontSize - 10}px;
     font-family: 'Poppins Light', sans-serif;
     font-weight: normal;
     vertical-align: top;
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        font-size: ${labelFontSize * multiplier}px;
+        margin-top: ${(-labelFontSize - 10) * multiplier}px;
+    `,
+    )}
 `
 
 export const IconsContainer = styled.div`
-    padding-top: 10px;
-    padding-bottom: 10px;
     box-sizing: border-box;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.35);
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        padding: ${10 * multiplier}px 0;
+        border-radius: ${8 * multiplier}px;
+        border: ${1 * multiplier}px solid rgba(255, 255, 255, 0.35);
+    `,
+    )}
 `

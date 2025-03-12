@@ -1,8 +1,18 @@
 import styled from '@emotion/styled'
-import { palette } from '../../theme'
 import homeBackground from '../../assets/images/home-background.png'
 import { Place } from '@mui/icons-material'
 import Project from '../../components/Project'
+import {
+    mediaQueriesIncludingDefault,
+    mediaQueryBigDesktop,
+    mediaQueryDesktop,
+    mediaQueryLaptop,
+    mediaQueryMobile,
+    ScreenWidths,
+} from '../../utils/mobile'
+import { TextField as MuiTextField } from '@mui/material'
+import ResponsiveButton from '../../components/Button'
+import { PlaceRounded } from '@mui/icons-material'
 
 export const RootContainer = styled.main`
     position: relative;
@@ -10,7 +20,7 @@ export const RootContainer = styled.main`
     overflow: hidden;
     width: 100%;
     background: rgba(52, 43, 55, 0.6);
-    background: linear-gradient(180deg, rgba(52, 43, 55, 0.43) -10%, rgba(175, 142, 235, 0.4) 110%);
+    background: linear-gradient(180deg, rgba(37, 197, 130, 0.2) -10%, rgba(210, 182, 236, 0.3) 110%);
     z-index: 0;
     display: flex;
     flex-direction: column;
@@ -19,57 +29,55 @@ export const RootContainer = styled.main`
 
 export const UnderBackground = styled.div`
     position: fixed;
-    // TODO: when mobilising get this to work for all screen sizes
-    height: 1200px;
     width: 100%;
     background: rgb(121, 173, 157);
-    background: linear-gradient(180deg, rgba(52, 43, 55, 1) 0%, rgba(121, 173, 157, 1) 100%);
+    background: linear-gradient(180deg, #a3659b 0%, #997cbe 100%);
     z-index: -4;
-`
-
-export const OverBackground = styled.div`
-    position: absolute;
     height: 100%;
-    width: 100%;
-    background: linear-gradient(90deg, #fff4caff -20%, #9f9f9f00 40%, #9f9f9f00 60%, #fff4caff 120%);
-    opacity: 0.2;
-    top: 0;
-    z-index: -1;
-`
-
-export const LastUpdatedText = styled.p`
-    font-family: 'Poppins Thin', sans-serif;
-    letter-spacing: 5px;
-    color: ${palette.offWhite};
-    font-weight: bold;
-    font-size: 13px;
-    position: absolute;
-    left: 20px;
-    top: 10px;
-    z-index: 1;
 `
 
 const HomeImageOuter = styled.div`
     position: relative;
-    height: 0;
-    width: 100%;
+    height: 0px;
+    background: red;
+
     overflow: visible;
-`
-const HomeImageInner = styled.div`
+    animation-duration: 1s;
     width: 100%;
-    position: absolute;
-    top: -80px;
+    display: flex;
+    justify-content: center;
+`
+
+const navbarHeight = 80
+const HomeImageInner = styled.div`
+    position: relative;
+    display: block;
+
+    margin-top: ${-navbarHeight}px;
     opacity: 0.7;
     z-index: -2;
     background: url(${homeBackground});
     background-repeat: no-repeat;
-    background-size: 100% auto;
-    // TODO: when mobilising get this to work for all screen sizes
-    height: 1080px;
+    background-size: 100%;
+    background-position: 50% 0;
+
+    height: 6000px; // As big as possible. Background size disables stretching
+    width: 100%;
+
+    ${mediaQueryBigDesktop(`background-size: ${ScreenWidths.BIG_DESKTOP}px;`)};
+    ${mediaQueryDesktop(`background-size: ${ScreenWidths.DESKTOP}px;`)};
+    ${mediaQueryLaptop(`background-size: ${ScreenWidths.LAPTOP}px;`)};
+    ${mediaQueryMobile(`background-size: 1300px;`)};
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        margin-top: ${-navbarHeight * multiplier}px;
+    `,
+    )}
 `
 
-export const HomeImage = () => (
-    <HomeImageOuter>
+export const HomeImage = ({ className }: { className?: string }) => (
+    <HomeImageOuter className={className}>
         <HomeImageInner />
     </HomeImageOuter>
 )
@@ -82,9 +90,8 @@ export const HomeHeadingContainer = styled.div`
     align-items: center;
     display: flex;
     flex-direction: column;
-    text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.8);
 
-    & > h1 {
+    & h1 {
         color: #ffffff;
         font-size: 85px;
         font-family: 'Poppins Semi Bold', sans-serif;
@@ -93,7 +100,7 @@ export const HomeHeadingContainer = styled.div`
         line-height: 95px;
         margin: 0;
     }
-    & > h2 {
+    & h2 {
         color: #ffffff;
         font-size: 24px;
         font-family: 'Poppins', sans-serif;
@@ -104,7 +111,7 @@ export const HomeHeadingContainer = styled.div`
             font-weight: bold;
         }
     }
-    & > h3 {
+    & h3 {
         color: #ffffff;
         font-size: 16px;
         font-family: 'Poppins Thin', sans-serif;
@@ -117,7 +124,7 @@ export const HomeHeadingContainer = styled.div`
         }
     }
 
-    & > h4 {
+    & h4 {
         color: #ffffff;
         font-size: 15px;
         font-family: 'Poppins Thin', sans-serif;
@@ -130,57 +137,126 @@ export const HomeHeadingContainer = styled.div`
             font-weight: bold;
         }
     }
-    & > h5 {
+    & h5 {
         color: #ffffff;
         font-size: 15px;
         font-family: 'Poppins Semi Bold', sans-serif;
         font-weight: bold;
         letter-spacing: 4px;
     }
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        height: ${850 * multiplier}px;
+
+
+        & h1 {
+            font-size: ${85 * multiplier}px;
+            letter-spacing: ${24 * multiplier}px;
+            text-shadow: 0px 0px ${15 * multiplier}px rgba(0, 0, 0, 0.6);
+            line-height: ${95 * multiplier}px;
+        }
+        & h2 {
+            font-size: ${24 * multiplier}px;
+            letter-spacing: ${8 * multiplier}px;
+            & > b {};
+        }
+        & h3 {
+            font-size: ${16 * multiplier}px;
+            letter-spacing: ${6 * multiplier}px;
+            & > b {};
+        }
+        & h4 {
+            font-size: ${15 * multiplier}px;
+            letter-spacing: ${4 * multiplier}px;
+            & > b {};
+        }
+        & h5 {
+            font-size: ${15 * multiplier}px;
+            letter-spacing: ${4 * multiplier}px;
+        }
+    `,
+    )}
 `
 
 export const ExpertiseContainer = styled.div`
-    margin-top: 50px;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 100px;
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        margin-top: ${50 * multiplier}px;
+        gap: ${100 * multiplier}px;
+    `,
+    )}
+
+    ${mediaQueryMobile(`
+        flex-direction: column;
+    `)}
 `
 
-export const Title = styled.h1<{ isShadow?: boolean }>`
+export const Title = styled.h1`
     text-align: center;
     color: #ffffff;
-    font-size: 46px;
     font-family: 'Poppins Semi Bold', sans-serif;
     font-weight: normal;
-    letter-spacing: 14px;
-    text-shadow: ${({ isShadow }) => (isShadow ? '0px 0px 15px rgba(0, 0, 0, 0.8)' : 'none')};
     margin: 0;
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        font-size: ${46 * multiplier}px;
+        letter-spacing: ${14 * multiplier}px;
+    `,
+    )}
 `
 
 export const PlaceIcon = styled(Place)`
     position: absolute;
-    margin-left: -40px;
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        margin-left: ${-35 * multiplier}px;
+        height: ${20 * multiplier}px;
+        width: auto;
+    `,
+    )}
 `
 
 export const ProjectsContainer = styled.div`
-    width: 1200px;
     display: flex;
     flex-direction: column;
     padding: 0;
-    gap: 15px;
     box-sizing: border-box;
-    margin-top: 50px;
-    border-radius: 12px;
     overflow: hidden;
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        width: ${1200 * multiplier}px;
+        gap: ${15 * multiplier}px;
+        margin-top: ${50 * multiplier}px;
+        border-radius: ${12 * multiplier}px;
+    `,
+    )}
+    ${mediaQueryMobile(`
+        width: 320px;
+    `)}
 `
 
 export const LowerProjectsContainer = styled.div`
     width: 100%;
     padding: 0;
     display: flex;
-    gap: 15px;
+    flex-direction: row;
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        gap: ${15 * multiplier}px;
+    `,
+    )}
+
+    ${mediaQueryMobile(`
+        flex-direction: column;
+    `)}
 `
 
 export const GptProject = styled(Project)``
@@ -197,4 +273,22 @@ export const ExperienceContainer = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
+`
+
+export const TextField = styled(MuiTextField)`
+    max-width: 95vw;
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        width: ${900 * multiplier}px;
+    `,
+    )}
+`
+
+export const SendButton = styled(ResponsiveButton)`
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        width: ${150 * multiplier}px;
+    `,
+    )}
 `

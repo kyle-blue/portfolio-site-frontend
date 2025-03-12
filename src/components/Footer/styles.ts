@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { mediaQueriesIncludingDefault } from '../../utils/mobile'
 
 export const MainContainer = styled.footer`
     width: 100%;
@@ -6,17 +7,27 @@ export const MainContainer = styled.footer`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 30px;
     text-align: center;
     background: rgba(0, 0, 0, 0.3);
-    font-size: 12px;
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        padding: ${30 * multiplier}px;
+        font-size: ${12 * multiplier}px;
+    `,
+    )}
 `
 export const ContactContainer = styled.div`
-    font-size: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 500px;
     white-space: pre;
     text-align: left;
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        width: ${500 * multiplier}px;
+        font-size: ${15 * multiplier}px;
+    `,
+    )}
 `

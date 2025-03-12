@@ -7,212 +7,239 @@ import {
     GptProject,
     HomeHeadingContainer,
     HomeImage,
-    LastUpdatedText,
     LowerProjectsContainer,
-    OverBackground,
     PlaceIcon,
     PortfolioProject,
     ProjectsContainer,
     RootContainer,
+    SendButton,
+    TextField,
     Title,
     UnderBackground,
 } from './styles'
-import config from '../../config'
 import ExpertiseColumn from '../../components/ExpertiseColumn'
 import { MarginSpacer } from '../../components/utility/Spacer'
 import gptOverlay from '../../assets/images/gpt-overlay.png'
 import coinOverlay from '../../assets/images/coin-overlay.png'
 import portfolioOverlay from '../../assets/images/portfolio-overlay.png'
 import Experience from '../../components/Experience'
-import { TextField } from '@mui/material'
-import { palette } from '../../theme'
 import Footer from '../../components/Footer'
-
+import { useNavigate } from 'react-router-dom'
+import { Paths } from '../../Routes'
+import ScrollAnimation from 'react-animate-on-scroll'
+import { isMobile as isMobileFunc } from '../../utils/mobile'
+import { useScreenWidth } from '../../hooks/mobile'
 interface Props {}
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export default function Root(props: Props) {
+function scrollToId(id: string) {
+    let element = document.getElementById(id)
+
+    if (element) {
+        const yOffset = -50
+        const y = element.getBoundingClientRect().top + window.scrollY + yOffset
+        window.scrollTo({ top: y, behavior: 'smooth' })
+    }
+}
+
+export default function Root({}: Props) {
+    const navigate = useNavigate()
+    const screenWidth = useScreenWidth()
+    const isMobile = isMobileFunc(screenWidth)
+
     return (
         <PageContainer>
-            <LastUpdatedText>LAST UPDATED {config.lastUpdated}</LastUpdatedText>
             <UnderBackground />
             <RootContainer>
                 <Navbar
                     elements={[
-                        { title: 'home', action: () => {} },
-                        { title: 'expertise', action: () => {} },
-                        { title: 'projects', action: () => {} },
-                        { title: 'experience', action: () => {} },
-                        { title: 'contact', action: () => {} },
+                        { title: 'home', action: () => scrollToId('home') },
+                        { title: 'expertise', action: () => scrollToId('expertise') },
+                        { title: 'projects', action: () => scrollToId('projects') },
+                        { title: 'experience', action: () => scrollToId('experience') },
+                        { title: 'contact', action: () => scrollToId('contact') },
                     ]}
                 />
-                <OverBackground />
                 <HomeImage />
+                <ScrollAnimation animateOnce animateIn="fadeInTop">
+                    <HomeHeadingContainer id="home">
+                        <h1>
+                            KYLE
+                            <br />
+                            DOIDGE
+                        </h1>
+                        <h2>
+                            <b>FULL STACK</b> SOFTWARE ENGINEER
+                        </h2>
+                        <h3>
+                            WITH <b>3 YEARS</b> OF INDUSTRY EXPERIENCE
+                        </h3>
+                        <h4>
+                            AND <b>9 YEARS</b> OF PERSONAL EXPERIENCE
+                        </h4>
+                        <h5>
+                            <PlaceIcon /> LONDON, UK
+                        </h5>
+                    </HomeHeadingContainer>
+                </ScrollAnimation>
 
-                <HomeHeadingContainer>
-                    <h1>
-                        KYLE
-                        <br />
-                        DOIDGE
-                    </h1>
-                    <h2>
-                        <b>FULL STACK</b> SOFTWARE ENGINEER
-                    </h2>
-                    <h3>
-                        WITH <b>3 YEARS</b> OF INDUSTRY EXPERIENCE
-                    </h3>
-                    <h4>
-                        AND <b>9 YEARS</b> OF PERSONAL EXPERIENCE
-                    </h4>
-                    <h5>
-                        <PlaceIcon /> LONDON, UK
-                    </h5>
-                </HomeHeadingContainer>
-
-                <MarginSpacer size={200} />
-                <Title isShadow>EXPERTISE</Title>
-                <ExpertiseContainer>
-                    <ExpertiseColumn
-                        title={'FRONTEND'}
-                        subtitle={'Experience making responsive webpages for desktop & mobile.'}
-                        rows={[
-                            {
-                                icons: ['javascript', 'typescript'],
-                                text: 'JAVASCRIPT / TYPESCRIPT',
-                            },
-                            {
-                                icons: ['html5', 'css3'],
-                                text: 'HTML / CSS',
-                            },
-                            {
-                                icons: ['react'],
-                                text: 'REACT / REACT NATIVE',
-                            },
-                        ]}
-                    />
-                    <ExpertiseColumn
-                        title={'BACKEND'}
-                        subtitle={'Experience making performant and secure REST API’s.'}
-                        rows={[
-                            {
-                                icons: ['nodejs', 'javascript', 'typescript'],
-                                text: 'NODE.JS / JAVASCRIPT / TYPESCRIPT',
-                            },
-                            {
-                                icons: ['rust', 'python'],
-                                text: 'RUST    PYTHON',
-                            },
-                            {
-                                icons: ['postgres', 'mysql'],
-                                text: 'SQL - POSTGRES / MYSQL',
-                            },
-                            {
-                                icons: ['mongodb', 'elasticsearch'],
-                                text: 'NOSQL - MONGODB / ELASTICSEARCH',
-                            },
-                        ]}
-                    />
-                    <ExpertiseColumn
-                        title={'DEVOPS'}
-                        subtitle={'Experience creating and managing scalable cloud services.'}
-                        rows={[
-                            {
-                                icons: ['docker', 'kubernetes', 'helm'],
-                                text: 'DOCKER / KUBERNETES (K8S) / HELM',
-                            },
-                            {
-                                icons: ['aws', 'gcp'],
-                                text: 'AWS / GOOGLE CLOUD PLATFORM (GCP)',
-                            },
-                            {
-                                icons: ['github', 'circleci'],
-                                text: 'GITHUB ACTIONS / CIRCLECI',
-                            },
-                        ]}
-                    />
-                </ExpertiseContainer>
-
-                <MarginSpacer size={200} />
-                <Title>RECENT PROJECTS</Title>
-                <ProjectsContainer>
-                    <GptProject
-                        title={'MINI GPT'}
-                        description={'Simple GPT chatbot with approximately 10 million parameters, trained on the Common Crawl dataset.'}
-                        uses={['python', 'nodejs', 'react', 'postgres']}
-                        layout={'wide'}
-                        backgroundImage={gptOverlay}
-                        buttons={[
-                            {
-                                text: 'VIDEO',
-                                action: () => {},
-                            },
-                            {
-                                text: 'GITHUB',
-                                action: () => {},
-                            },
-                            {
-                                text: 'GO TO SITE',
-                                action: () => {},
-                            },
-                        ]}
-                    />
-                    <LowerProjectsContainer>
-                        <PortfolioProject
-                            title={'PORTFOLIO SITE'}
-                            description={
-                                '(This !) - Responsive, mobile friendly React portfolio site with rust tcp http backend (made from scratch as a showcase) and scalable k8s archetecture.'
-                            }
-                            uses={['rust', 'react', 'kubernetes', 'docker', 'helm']}
-                            layout={'tall'}
-                            backgroundImage={portfolioOverlay}
-                            buttons={[
+                <MarginSpacer size={100} />
+                <ScrollAnimation animateOnce animateIn="fadeInTop">
+                    <Title id="expertise">EXPERTISE</Title>
+                </ScrollAnimation>
+                <ScrollAnimation animateOnce animateIn="fadeInTop">
+                    <ExpertiseContainer>
+                        <ExpertiseColumn
+                            title={'FRONTEND'}
+                            subtitle={'Experience making responsive webpages for desktop & mobile.'}
+                            rows={[
                                 {
-                                    text: 'VIDEO',
-                                    action: () => {},
+                                    icons: ['javascript', 'typescript'],
+                                    text: 'JAVASCRIPT / TYPESCRIPT',
                                 },
                                 {
-                                    text: 'GITHUB',
-                                    action: () => {},
+                                    icons: ['html5', 'css3'],
+                                    text: 'HTML / CSS',
+                                },
+                                {
+                                    icons: ['react'],
+                                    text: 'REACT / REACT NATIVE',
                                 },
                             ]}
                         />
-                        <CoinProject
-                            title={'MINI COIN'}
-                            description={'Experimental cryptocurrency minted on the Etherium (ERC-20) network that uses proof-of-stake.'}
+                        <ExpertiseColumn
+                            title={'BACKEND'}
+                            subtitle={'Experience making performant and secure REST API’s.'}
+                            rows={[
+                                {
+                                    icons: ['nodejs', 'javascript', 'typescript'],
+                                    text: 'NODE.JS / JAVASCRIPT / TYPESCRIPT',
+                                },
+                                {
+                                    icons: ['rust', 'python'],
+                                    text: 'RUST    PYTHON',
+                                },
+                                {
+                                    icons: ['postgres', 'mysql'],
+                                    text: 'SQL - POSTGRES / MYSQL',
+                                },
+                                {
+                                    icons: ['mongodb', 'elasticsearch'],
+                                    text: 'NOSQL - MONGODB / ELASTICSEARCH',
+                                },
+                            ]}
+                        />
+                        <ExpertiseColumn
+                            title={'DEVOPS'}
+                            subtitle={'Experience creating and managing scalable cloud services.'}
+                            rows={[
+                                {
+                                    icons: ['docker', 'kubernetes', 'helm'],
+                                    text: 'DOCKER / KUBERNETES (K8S) / HELM',
+                                },
+                                {
+                                    icons: ['aws', 'gcp'],
+                                    text: 'AWS / GOOGLE CLOUD PLATFORM (GCP)',
+                                },
+                                {
+                                    icons: ['github', 'circleci'],
+                                    text: 'GITHUB ACTIONS / CIRCLECI',
+                                },
+                            ]}
+                        />
+                    </ExpertiseContainer>
+                </ScrollAnimation>
+                <MarginSpacer size={80} />
+                <ScrollAnimation animateOnce animateIn="fadeInTop">
+                    <Title id="projects">RECENT PROJECTS</Title>
+                </ScrollAnimation>
+                <ScrollAnimation animateOnce animateIn="fadeInTop">
+                    <ProjectsContainer>
+                        <GptProject
+                            title={'MINI GPT - [IN PROGRESS]'}
+                            description={'Simple GPT chatbot trained on the Common Crawl dataset.'}
                             uses={['python', 'nodejs', 'react', 'postgres']}
-                            layout={'tall'}
-                            backgroundImage={coinOverlay}
+                            layout={isMobile ? 'tall' : 'wide'}
+                            backgroundImage={gptOverlay}
                             buttons={[
                                 {
                                     text: 'VIDEO',
-                                    action: () => {},
+                                    action: () => navigate(Paths.IN_PROGRESS),
                                 },
                                 {
                                     text: 'GITHUB',
-                                    action: () => {},
+                                    action: () => navigate(Paths.IN_PROGRESS),
                                 },
                                 {
-                                    text: 'BLOCKCHAIN',
-                                    action: () => {},
+                                    text: 'GO TO SITE',
+                                    action: () => navigate(Paths.IN_PROGRESS),
                                 },
                             ]}
                         />
-                    </LowerProjectsContainer>
-                </ProjectsContainer>
+                        <ScrollAnimation animateOnce animateIn="fadeInTop">
+                            <LowerProjectsContainer>
+                                <PortfolioProject
+                                    title={'PORTFOLIO SITE'}
+                                    description={
+                                        '(This !) - Responsive, mobile friendly React portfolio site with rust tcp http backend (made from scratch as a showcase) and scalable k8s archetecture.'
+                                    }
+                                    uses={['rust', 'react', 'kubernetes', 'docker', 'helm']}
+                                    layout={'tall'}
+                                    backgroundImage={portfolioOverlay}
+                                    buttons={[
+                                        {
+                                            text: 'VIDEO',
+                                            action: () => navigate(Paths.IN_PROGRESS),
+                                        },
+                                        {
+                                            text: 'GITHUB',
+                                            action: () =>
+                                                (window.location.href = 'https://github.com/kyle-blue/portfolio-site-infrastructure'),
+                                        },
+                                    ]}
+                                />
+                                <CoinProject
+                                    title={'MINI COIN - [IN PROGRESS]'}
+                                    description={
+                                        'Experimental cryptocurrency minted on the Etherium (ERC-20) network that uses proof-of-stake.'
+                                    }
+                                    uses={['python', 'nodejs', 'react', 'postgres']}
+                                    layout={'tall'}
+                                    backgroundImage={coinOverlay}
+                                    buttons={[
+                                        {
+                                            text: 'VIDEO',
+                                            action: () => navigate(Paths.IN_PROGRESS),
+                                        },
+                                        {
+                                            text: 'GITHUB',
+                                            action: () => navigate(Paths.IN_PROGRESS),
+                                        },
+                                        {
+                                            text: 'BLOCKCHAIN',
+                                            action: () => navigate(Paths.IN_PROGRESS),
+                                        },
+                                    ]}
+                                />
+                            </LowerProjectsContainer>
+                        </ScrollAnimation>
+                    </ProjectsContainer>
+                </ScrollAnimation>
 
-                <MarginSpacer size={200} />
-                <Title>
-                    PROFESSIONAL
-                    <br />
-                    EXPERIENCE
-                </Title>
-                <MarginSpacer size={50} />
+                <MarginSpacer size={80} />
+                <ScrollAnimation animateOnce animateIn="fadeInTop">
+                    <Title id="experience">
+                        PROFESSIONAL
+                        <br />
+                        EXPERIENCE
+                    </Title>
+                </ScrollAnimation>
+                <MarginSpacer size={30} />
                 <ExperienceContainer>
                     <Experience
                         jobs={[
                             {
                                 title: 'NETACEA',
-                                subtitle: '[BOT MITIGATION]\nFULL STACK SOFTWARE ENGINEER',
+                                subtitle: '[BOT MITIGATION] - FULL STACK SOFTWARE ENGINEER',
                                 uses: ['javascript', 'typescript', 'vue', 'nodejs', 'python', 'postgres', 'aws', 'docker'],
                                 startDate: 'July 2021',
                                 endDate: 'June 2022',
@@ -250,7 +277,7 @@ export default function Root(props: Props) {
                             },
                             {
                                 title: 'PASSFORT (MOODYS)',
-                                subtitle: '[KYC]\nFULL STACK SOFTWARE ENGINEER',
+                                subtitle: '[KYC] - FULL STACK SOFTWARE ENGINEER',
                                 uses: [
                                     'javascript',
                                     'typescript',
@@ -335,7 +362,7 @@ export default function Root(props: Props) {
                             },
                             {
                                 title: 'RoEx',
-                                subtitle: '[AI MUSIC STARTUP]\nFULL STACK SOFTWARE ENGINEER',
+                                subtitle: '[AI MUSIC STARTUP] - FULL STACK SOFTWARE ENGINEER',
                                 uses: ['javascript', 'typescript', 'react', 'python', 'nodejs', 'datastore', 'gcp', 'docker'],
                                 startDate: 'April 2024',
                                 endDate: 'January 2025',
@@ -355,33 +382,46 @@ export default function Root(props: Props) {
                         ]}
                     />
                 </ExperienceContainer>
-                <MarginSpacer size={150} />
-                <Title>CONTACT</Title>
-                <MarginSpacer size={50} />
-                <TextField
-                    InputLabelProps={{ shrink: true }}
-                    color={'primary'}
-                    style={{ width: 900 }}
-                    variant="outlined"
-                    label="email"
-                    placeholder="john.doe@gmail.com"
-                />
+                <MarginSpacer size={80} />
+                <ScrollAnimation animateOnce animateIn="fadeInTop">
+                    <Title id="contact">CONTACT</Title>
+                </ScrollAnimation>
                 <MarginSpacer size={30} />
-                <TextField
-                    color={'primary'}
-                    slotProps={{
-                        inputLabel: {
-                            shrink: true,
-                        },
-                    }}
-                    multiline
-                    style={{ width: 900 }}
-                    rows={9}
-                    variant="outlined"
-                    label="message"
-                    placeholder="We have a position opening at x ..."
-                />
-
+                <ScrollAnimation
+                    animateOnce
+                    animateIn="fadeInTop"
+                    style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
+                >
+                    <TextField
+                        slotProps={{
+                            inputLabel: {
+                                shrink: true,
+                            },
+                        }}
+                        color={'primary'}
+                        variant="outlined"
+                        label="email"
+                        placeholder="john.doe@gmail.com"
+                    />
+                    <MarginSpacer size={20} />
+                    <TextField
+                        color={'primary'}
+                        slotProps={{
+                            inputLabel: {
+                                shrink: true,
+                            },
+                        }}
+                        multiline
+                        rows={9}
+                        variant="outlined"
+                        label="message"
+                        placeholder="We have a position opening at x ..."
+                    />
+                    <MarginSpacer size={20} />
+                    <SendButton variant="contained" color="secondary">
+                        SEND
+                    </SendButton>
+                </ScrollAnimation>
                 <MarginSpacer size={80} />
                 <Footer />
             </RootContainer>

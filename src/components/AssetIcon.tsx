@@ -24,6 +24,7 @@ import DatastoreIcon from '../assets/svg/datastore.svg'
 import VueIcon from '../assets/svg/vue.svg'
 import MoreIcon from '../assets/svg/more.svg'
 import { Apps } from '@mui/icons-material'
+import { mediaQueriesIncludingDefault } from '../utils/mobile'
 
 function getIconByName(name: string) {
     switch (name.toLowerCase()) {
@@ -79,20 +80,28 @@ function getIconByName(name: string) {
 interface Props {
     name: string
     size: number
+    responsive?: boolean
 }
 
-const StyledIconWrapper = styled.span`
+const StyledIconWrapper = styled.span<{ size: number; responsive: boolean }>`
     display: inline-flex;
     justify-content: center;
     align-items: center;
+
+    ${({ size, responsive }) => {
+        if (responsive) {
+            return mediaQueriesIncludingDefault((multiplier) => `height: ${size * multiplier}px;`)
+        }
+        return `height: ${size}px;`
+    }}
 `
 
-export default function AssetIcon({ name, size }: Props): React.ReactElement {
+export default function AssetIcon({ name, size, responsive = true }: Props): React.ReactElement {
     const Icon = getIconByName(name)
 
     return (
-        <StyledIconWrapper>
-            <Icon style={{ height: size, margin: 0, padding: 0 }} />
+        <StyledIconWrapper responsive={responsive} size={size}>
+            <Icon style={{ height: '100%', margin: 0, padding: 0 }} />
         </StyledIconWrapper>
     )
 }
