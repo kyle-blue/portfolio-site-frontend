@@ -3,6 +3,8 @@ import { capitalizeFirstLetter } from '../../utils/strings'
 import AssetIcon from '../AssetIcon'
 import { Tooltip } from '@mui/material'
 import { IconsContainer, IconsLabel } from './styles'
+import { getCurrentScreenMultiplier, ScreenMultipliers, ScreenWidths } from '../../utils/mobile'
+import { useScreenWidth } from '../../hooks/mobile'
 
 interface Props {
     icons: string[]
@@ -13,15 +15,16 @@ interface Props {
 }
 
 export default function IconsBox({ icons, className, showLabel = true, width }: Props): React.ReactElement {
-    const horizontalPadding = 30
-    const gap = 25
-    const iconContainerWidth = 40
-    const iconWidth = 32
+    const screenWidth = useScreenWidth()
+    const multiplier = getCurrentScreenMultiplier(screenWidth) // For responsiveness / mobilisation
+    const horizontalPadding = 30 * multiplier
+    const gap = 25 * multiplier
+    const iconContainerWidth = 40 * multiplier
+    const iconWidth = 32 * multiplier
 
     let iconsToShow = icons
     if (width !== undefined) {
         const maxIcons = Math.floor((width + gap - horizontalPadding) / (iconContainerWidth + gap))
-        console.log(maxIcons)
         if (maxIcons < icons.length) {
             if (maxIcons > 0) {
                 iconsToShow = icons.slice(0, maxIcons - 1)
@@ -36,7 +39,7 @@ export default function IconsBox({ icons, className, showLabel = true, width }: 
             {iconsToShow.map((icon) => (
                 <Tooltip key={icon} title={capitalizeFirstLetter(icon)} placement="top" arrow>
                     <div style={{ minWidth: iconContainerWidth }}>
-                        <AssetIcon name={icon} size={iconWidth} />
+                        <AssetIcon name={icon} size={iconWidth} responsive={false} />
                     </div>
                 </Tooltip>
             ))}

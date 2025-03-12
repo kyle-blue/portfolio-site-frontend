@@ -1,21 +1,8 @@
-import React, { useState } from 'react'
-import AssetIcon from '../AssetIcon'
-import { MarginSpacer, Spacer } from '../utility/Spacer'
-import { Button, Tooltip } from '@mui/material'
-import {
-    Title,
-    Description,
-    MainContainer,
-    UpperContainer,
-    LowerContainer,
-    IconsLabel,
-    IconsContainer,
-    ButtonsContainer,
-    Background,
-    InnerContainer,
-} from './styles'
-import { capitalizeFirstLetter } from '../../utils/strings'
+import React from 'react'
+import { Spacer } from '../utility/Spacer'
+import { Title, Description, MainContainer, UpperContainer, LowerContainer, ButtonsContainer, Background, InnerContainer } from './styles'
 import IconsBox from '../IconsBox'
+import Button from '../Button'
 
 interface iButton {
     text: string

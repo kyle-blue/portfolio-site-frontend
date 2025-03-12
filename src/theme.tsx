@@ -30,10 +30,11 @@ export const palette = {
     warning: 'rgb(180, 168, 0)',
 }
 
+export const muiTextSize = 14
 export const muiTheme = createTheme({
     typography: {
         fontFamily: `"Poppins Semi Bold", "Helvetica", "Arial", sans-serif`,
-        fontSize: 14,
+        fontSize: muiTextSize,
         color: palette.white,
     },
     palette: {
@@ -65,13 +66,13 @@ export const muiTheme = createTheme({
                 tooltip: {
                     fontFamily: `"Poppins", "Helvetica", "Arial", sans-serif`,
                     fontSize: '14px',
-                    background: darken(palette.offWhite, 30),
+                    background: palette.offWhite,
                     padding: '8px 15px',
                     boxSizing: 'border-box',
                     color: palette.offBlack,
                 },
                 arrow: {
-                    color: darken(palette.offWhite, 30),
+                    color: palette.offWhite,
                 },
             },
         },
@@ -81,7 +82,7 @@ export const muiTheme = createTheme({
                     border: '1px solid rgba(255, 255, 255, 0.35)',
                     padding: '8px 30px',
                     borderRadius: '8px',
-                    boxShadow: 'border-box',
+                    boxSizing: 'border-box',
                 },
             },
         },

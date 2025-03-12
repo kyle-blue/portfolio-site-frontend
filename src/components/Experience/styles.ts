@@ -1,72 +1,116 @@
 import styled from '@emotion/styled'
+import ScrollAnimation from 'react-animate-on-scroll'
+import { mediaQueriesIncludingDefault, mediaQueryMobile, ScreenMultipliers } from '../../utils/mobile'
 
 const rowHeight = 270
-const jobBoxHeight = 350
+const jobBoxHeight = 360
+const jobBoxWidth = 480
 const descriptionHeight = 100
 
 export const MainContainer = styled.div<{ numElements: number }>`
     display: grid;
     grid-template-columns: auto 1fr auto 1fr auto;
-    grid-template-rows: repeat(${({ numElements }) => numElements}, ${rowHeight}px);
-    width: 1200px;
     padding: 0;
-    margin-bottom: ${jobBoxHeight - rowHeight}px;
+
+    ${({ numElements }) =>
+        mediaQueriesIncludingDefault(
+            (multiplier) => `
+            width: ${1200 * multiplier}px;
+            margin-bottom: ${(jobBoxHeight - rowHeight) * multiplier}px;
+            grid-template-rows: repeat(${numElements}, ${rowHeight * multiplier}px);
+    
+        `,
+        ) +
+        mediaQueryMobile(`
+            grid-template-rows: ${(rowHeight * ScreenMultipliers.MOBILE) / 2}px repeat(${numElements * 2 - 1}, ${rowHeight * ScreenMultipliers.MOBILE}px) ${(rowHeight * ScreenMultipliers.MOBILE) / 2}px;
+            grid-template-columns: auto;
+            
+        `)}
 `
 
-export const JobBox = styled.div<{ num: number }>`
+export const JobBox = styled(ScrollAnimation)<{ num: number }>`
     grid-column: ${({ num }) => (num % 2 == 0 ? 1 : 5)} / span 1;
     grid-row: ${({ num }) => num + 1} / span 1;
-    border-radius: 14px;
     box-sizing: border-box;
-    padding: 20px 40px;
     background: rgba(255, 255, 255, 0.2);
-    width: 450px;
-    height: ${jobBoxHeight}px;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        border-radius: ${14 * multiplier}px;
+        padding: ${20 * multiplier}px ${40 * multiplier}px;
+        width: ${jobBoxWidth * multiplier}px;
+        height: ${jobBoxHeight * multiplier}px;
+    `,
+    )}
+
+    ${({ num }) =>
+        mediaQueryMobile(`
+        height: ${jobBoxHeight * ScreenMultipliers.MOBILE * 1.1}px;
+
+        grid-row: ${(num + 1) * 2} / span 1;
+        grid-column: 1 / span 1;
+        margin-left: auto;
+        margin-right: auto;
+        background: #bea4ce;
+        z-index: 5;
+    `)}
 `
 
-export const HorizontalLineContainer = styled.div<{ num: number }>`
+export const HorizontalLine = styled(ScrollAnimation)<{ num: number }>`
     grid-column: ${({ num }) => (num % 2 == 0 ? 2 : 4)} / span 1;
     grid-row: ${({ num }) => num + 1} / span 1;
 
     display: flex;
     justify-content: center;
     align-items: center;
-    height: ${jobBoxHeight / 2 - 2}px;
 
-    border-bottom: 2px dashed rgba(255, 255, 255, 0.5);
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        height: ${(jobBoxHeight / 2 - 2) * multiplier}px;
+        border-bottom: ${2 * multiplier}px dashed rgba(255, 255, 255, 0.5);
+    `,
+    )}
 `
 
-export const DateContainer = styled.div<{ num: number }>`
+export const DateContainer = styled(ScrollAnimation)<{ num: number }>`
     grid-column: ${({ num }) => (num % 2 == 0 ? 4 : 2)} / span 1;
     grid-row: ${({ num }) => num + 1} / span 1;
 
     display: flex;
     justify-content: ${({ num }) => (num % 2 == 0 ? 'left' : 'right')};
     align-items: center;
-    height: ${jobBoxHeight}px;
     max-width: 100%;
     position: relative;
     overflow: visible;
     box-sizing: border-box;
-    padding: 0 20px;
 
     & > p {
         color: #ffffff;
-        font-size: 15px;
         font-family: 'Poppins Light', sans-serif;
         font-weight: normal;
         min-width: max-content;
         position: absolute;
         text-align: ${({ num }) => (num % 2 == 0 ? 'left' : 'right')};
     }
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        padding: 0 ${20 * multiplier}px;
+        height: ${jobBoxHeight * multiplier}px;
+
+
+        & > p {
+            font-size: ${15 * multiplier}px;
+        }
+    `,
+    )}
 `
 
 export const VerticalLineContainer = styled.div<{ numRows: number }>`
-    margin-top: ${(jobBoxHeight - rowHeight) / 2}px;
     grid-column: 3 / span 1;
     grid-row: 1 / span ${({ numRows }) => numRows};
 
@@ -74,57 +118,101 @@ export const VerticalLineContainer = styled.div<{ numRows: number }>`
     justify-content: center;
     align-items: center;
     height: 100%;
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        margin-top: ${((jobBoxHeight - rowHeight) / 2) * multiplier}px;
+    `,
+    )}
+
+    ${({ numRows }) =>
+        mediaQueryMobile(`
+            grid-column: 1 / span 1;
+            grid-row: 1 / span ${numRows * 2 + 1};
+        `)}
 `
 
 export const VerticalLine = styled.div`
     border: 0;
-    border-left: 3px dashed rgba(255, 255, 255, 1);
     margin: 0;
-    margin-left: 1px;
     height: 100%;
     padding: 0;
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        margin-left: ${1 * multiplier}px;
+        border-left: ${3 * multiplier}px dashed rgba(255, 255, 255, 1);
+    `,
+    )}
 `
 
 export const Circle = styled.div`
-    height: 40px;
-    width: 40px;
-    background-color: #b9b9b9;
+    background-color: #ffffff;
     border-radius: 50%;
     margin-top: auto;
     margin-bottom: auto;
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        height: ${40 * multiplier}px;
+        width: ${40 * multiplier}px;
+    `,
+    )}
 `
-export const CircleContainer = styled.div<{ num: number }>`
+export const CircleContainer = styled(ScrollAnimation)<{ num: number }>`
     grid-column: 3 / span 1;
     grid-row: ${({ num }) => num + 1} / span 1;
 
-    height: ${jobBoxHeight}px;
     position: relative;
     z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        height: ${jobBoxHeight * multiplier}px;
+    `,
+    )}
+
+    ${({ num }) =>
+        mediaQueryMobile(`
+        grid-column: 1 / span 1;
+        grid-row: ${num};
+        flex-direction: column;
+    `)}
 `
 export const Title = styled.h1`
     color: #ffffff;
-    font-size: 24px;
     font-family: 'Poppins Semi Bold', sans-serif;
     margin: 0;
-    margin-bottom: 5px;
     font-weight: normal;
     align-self: self-start;
     text-align: left;
-    letter-spacing: 4px;
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        font-size: ${24 * multiplier}px;
+        margin-bottom: ${5 * multiplier}px;
+        letter-spacing: ${4 * multiplier}px;
+    `,
+    )}
 `
 export const Subtitle = styled.h2`
     margin: 0;
     color: #ffffff;
-    font-size: 16px;
     font-family: 'Poppins', sans-serif;
     font-weight: normal;
-    margin-bottom: 15px;
     white-space: pre-wrap;
     text-align: left;
     align-self: self-start;
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        font-size: ${14 * multiplier}px;
+        margin-bottom: ${15 * multiplier}px;
+    `,
+    )}
 `
 export const Description = styled.p`
     margin: 0;
@@ -133,10 +221,21 @@ export const Description = styled.p`
     font-family: 'Poppins Light', sans-serif;
     font-weight: normal;
     text-overflow: ellipsis;
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        font-size: ${14 * multiplier}px;
+    `,
+    )}
 `
 
 export const DescriptionContainer = styled.div`
-    height: ${descriptionHeight}px;
     mask-image: linear-gradient(180deg, #000 60%, transparent);
     -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        height: ${descriptionHeight * multiplier}px;
+    `,
+    )}
 `

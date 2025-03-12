@@ -5,11 +5,12 @@ import OnLoad from './OnLoad'
 
 export interface PageContainerProps {
     children: JSX.Element[] | JSX.Element
+    id?: string
 }
 
-function PageContainer({ children }: PageContainerProps): React.ReactElement {
+function PageContainer({ children, id }: PageContainerProps): React.ReactElement {
     return (
-        <RootContainer>
+        <RootContainer id={id}>
             {children}
             <Spacer />
             <OnLoad />

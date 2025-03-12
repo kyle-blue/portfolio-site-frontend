@@ -1,63 +1,96 @@
 import styled from '@emotion/styled'
+import { mediaQueriesIncludingDefault } from '../../utils/mobile'
 
 export const MainContainer = styled.div`
-    border: 5px solid rgba(255, 255, 255, 0.25);
-    border-radius: 8px;
-    padding: 50px 40px;
     box-sizing: border-box;
-    width: 375px;
     height: fit-content;
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        padding: ${50 * multiplier}px ${40 * multiplier}px;
+        border: ${5 * multiplier}px solid rgba(255, 255, 255, 0.25);
+        border-radius: ${8 * multiplier}px;
+        width: ${375 * multiplier}px;
+    `,
+    )}
 `
 
 export const Title = styled.h1`
     color: #ffffff;
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 28px;
     font-family: 'Poppins Bold', sans-serif;
     font-weight: normal;
-    letter-spacing: 6px;
     text-align: center;
-    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        font-size: ${28 * multiplier}px;
+        letter-spacing: ${6 * multiplier}px;
+    `,
+    )}
 `
 
 export const Subtitle = styled.h2`
     color: #ffffff;
-    font-size: 14px;
     font-family: 'Poppins light', sans-serif;
     font-weight: normal;
     text-align: center;
-    text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        font-size: ${14 * multiplier}px;
+    `,
+    )}
 `
 
 export const RowText = styled.p`
     color: #ffffff;
     margin: 0;
-    font-size: 16px;
     font-family: 'Jetbrains Mono Medium', sans-serif;
     font-weight: normal;
     text-align: center;
-    text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
     white-space: pre-wrap;
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        font-size: ${16 * multiplier}px;
+    `,
+    )}
 `
 export const RowContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        gap: ${15 * multiplier}px;
+    `,
+    )}
 `
 
 export const IconsContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        gap: ${15 * multiplier}px;
+    `,
+    )}
 `
 export const AllRowsContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 50px;
-    margin-top: 40px;
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        gap: ${50 * multiplier}px;
+        margin-top: ${40 * multiplier}px;
+    `,
+    )}
 `
