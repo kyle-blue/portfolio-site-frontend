@@ -12,6 +12,8 @@ import {
     PortfolioProject,
     ProjectsContainer,
     RootContainer,
+    SendButton,
+    TextField,
     Title,
     UnderBackground,
 } from './styles'
@@ -21,24 +23,28 @@ import gptOverlay from '../../assets/images/gpt-overlay.png'
 import coinOverlay from '../../assets/images/coin-overlay.png'
 import portfolioOverlay from '../../assets/images/portfolio-overlay.png'
 import Experience from '../../components/Experience'
-import { Button, TextField } from '@mui/material'
 import Footer from '../../components/Footer'
 import { useNavigate } from 'react-router-dom'
 import { Paths } from '../../Routes'
 import ScrollAnimation from 'react-animate-on-scroll'
+import { isMobile as isMobileFunc } from '../../utils/mobile'
+import { useScreenWidth } from '../../hooks/mobile'
 interface Props {}
 
 function scrollToId(id: string) {
     let element = document.getElementById(id)
 
     if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        const yOffset = -50
+        const y = element.getBoundingClientRect().top + window.scrollY + yOffset
+        window.scrollTo({ top: y, behavior: 'smooth' })
     }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export default function Root(props: Props) {
+export default function Root({}: Props) {
     const navigate = useNavigate()
+    const screenWidth = useScreenWidth()
+    const isMobile = isMobileFunc(screenWidth)
 
     return (
         <PageContainer>
@@ -152,7 +158,7 @@ export default function Root(props: Props) {
                             title={'MINI GPT - [IN PROGRESS]'}
                             description={'Simple GPT chatbot trained on the Common Crawl dataset.'}
                             uses={['python', 'nodejs', 'react', 'postgres']}
-                            layout={'wide'}
+                            layout={isMobile ? 'tall' : 'wide'}
                             backgroundImage={gptOverlay}
                             buttons={[
                                 {
@@ -393,7 +399,6 @@ export default function Root(props: Props) {
                             },
                         }}
                         color={'primary'}
-                        style={{ width: 900 }}
                         variant="outlined"
                         label="email"
                         placeholder="john.doe@gmail.com"
@@ -407,16 +412,15 @@ export default function Root(props: Props) {
                             },
                         }}
                         multiline
-                        style={{ width: 900 }}
                         rows={9}
                         variant="outlined"
                         label="message"
                         placeholder="We have a position opening at x ..."
                     />
                     <MarginSpacer size={20} />
-                    <Button variant="contained" color="secondary" style={{ width: 150 }}>
+                    <SendButton variant="contained" color="secondary">
                         SEND
-                    </Button>
+                    </SendButton>
                 </ScrollAnimation>
                 <MarginSpacer size={80} />
                 <Footer />

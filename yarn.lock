@@ -3571,6 +3571,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"hamburger-react@npm:^2.5.2":
+  version: 2.5.2
+  resolution: "hamburger-react@npm:2.5.2"
+  peerDependencies:
+    react: ^16.8 || ^17 || ^18 || ^19
+  checksum: 10c0/75db5194d21d5a728436bb3bb00129b709a10ef465999b5bd14869f5c23b91c4f63f64fcbe1704f7516ff4dfbfe636d4018d5b8ddd6a7d4d7335d829f3b46a9b
+  languageName: node
+  linkType: hard
+
 "happy-dom@npm:^17.2.2":
   version: 17.2.2
   resolution: "happy-dom@npm:17.2.2"
@@ -6273,6 +6282,7 @@ __metadata:
     eslint-plugin-prettier: "npm:^5.2.3"
     eslint-plugin-react: "npm:^7.37.4"
     eslint-plugin-react-hooks: "npm:^5.2.0"
+    hamburger-react: "npm:^2.5.2"
     happy-dom: "npm:^17.2.2"
     js-cookie: "npm:^3.0.5"
     prettier: "npm:^3.5.3"
