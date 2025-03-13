@@ -1,10 +1,10 @@
 import React from 'react'
 import { capitalizeFirstLetter } from '../../utils/strings'
 import AssetIcon from '../AssetIcon'
-import { Tooltip } from '@mui/material'
 import { IconsContainer, IconsLabel } from './styles'
-import { getCurrentScreenMultiplier, ScreenMultipliers, ScreenWidths } from '../../utils/mobile'
+import { getCurrentScreenMultiplier } from '../../utils/mobile'
 import { useScreenWidth } from '../../hooks/mobile'
+import Tooltip from '../Tooltip'
 
 interface Props {
     icons: string[]
