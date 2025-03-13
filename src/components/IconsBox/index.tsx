@@ -1,8 +1,8 @@
 import React from 'react'
 import { capitalizeFirstLetter } from '../../utils/strings'
 import AssetIcon from '../AssetIcon'
-import { IconsContainer, IconsLabel } from './styles'
-import { getCurrentScreenMultiplier } from '../../utils/mobile'
+import { AssetIconContainer, IconsContainer, IconsLabel } from './styles'
+import { getCurrentScreenMultiplier, isMobile as isMobileFunc } from '../../utils/mobile'
 import { useScreenWidth } from '../../hooks/mobile'
 import Tooltip from '../Tooltip'
 
@@ -17,6 +17,7 @@ interface Props {
 export default function IconsBox({ icons, className, showLabel = true, width }: Props): React.ReactElement {
     const screenWidth = useScreenWidth()
     const multiplier = getCurrentScreenMultiplier(screenWidth) // For responsiveness / mobilisation
+    const isMobile = isMobileFunc(screenWidth)
     const horizontalPadding = 30 * multiplier
     const gap = 25 * multiplier
     const iconContainerWidth = 40 * multiplier
@@ -37,10 +38,10 @@ export default function IconsBox({ icons, className, showLabel = true, width }: 
         <IconsContainer className={className} style={{ paddingLeft: horizontalPadding, paddingRight: horizontalPadding, gap, width }}>
             {showLabel && <IconsLabel>Uses:</IconsLabel>}
             {iconsToShow.map((icon) => (
-                <Tooltip key={icon} title={capitalizeFirstLetter(icon)} placement="top" arrow>
-                    <div style={{ minWidth: iconContainerWidth }}>
+                <Tooltip key={icon} title={capitalizeFirstLetter(icon)} placement="top" arrow enterTouchDelay={isMobile ? 0 : undefined}>
+                    <AssetIconContainer width={iconContainerWidth}>
                         <AssetIcon name={icon} size={iconWidth} responsive={false} />
-                    </div>
+                    </AssetIconContainer>
                 </Tooltip>
             ))}
         </IconsContainer>
