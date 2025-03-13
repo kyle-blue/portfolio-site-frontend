@@ -6,10 +6,10 @@ window.addEventListener('resize', () => {
 })
 
 export function useScreenWidth() {
-    const [screenWidth, setScreenWidth] = useState(screen.width)
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth)
 
     useEffect(() => {
-        resizeFunctions.push(() => setScreenWidth(screen.width))
+        resizeFunctions.push(() => setScreenWidth(window.innerWidth))
     }, [screenWidth])
 
     return screenWidth

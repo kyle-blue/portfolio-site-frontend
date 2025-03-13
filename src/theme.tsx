@@ -1,7 +1,5 @@
 import { createTheme } from '@mui/material'
 import { css } from '@emotion/react'
-import { darken, setOpacity } from './utils/colour'
-import { fontFamily } from '@mui/system'
 
 export const palette = {
     main: 'rgb(255, 255, 255)',
@@ -31,6 +29,8 @@ export const palette = {
 }
 
 export const muiTextSize = 14
+export const muiTooltipVerticalPadding = 8
+export const muiTooltipHorizontalPadding = 15
 export const muiTheme = createTheme({
     typography: {
         fontFamily: `"Poppins Semi Bold", "Helvetica", "Arial", sans-serif`,
@@ -65,9 +65,9 @@ export const muiTheme = createTheme({
             styleOverrides: {
                 tooltip: {
                     fontFamily: `"Poppins", "Helvetica", "Arial", sans-serif`,
-                    fontSize: '14px',
+                    fontSize: `${muiTextSize}px`,
                     background: palette.offWhite,
-                    padding: '8px 15px',
+                    padding: `${muiTooltipVerticalPadding}px ${muiTooltipHorizontalPadding}px`,
                     boxSizing: 'border-box',
                     color: palette.offBlack,
                 },
