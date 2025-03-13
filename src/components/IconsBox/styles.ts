@@ -34,3 +34,10 @@ export const IconsContainer = styled.div`
     `,
     )}
 `
+
+export const AssetIconContainer = styled.div<{ width: number }>`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: ${({ width }) => width};
+`

@@ -239,7 +239,8 @@ export const ProjectsContainer = styled.div`
     `,
     )}
     ${mediaQueryMobile(`
-        width: 320px;
+        width: 400px;
+        max-width: 97vw;
     `)}
 `
 
