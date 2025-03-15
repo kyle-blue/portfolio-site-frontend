@@ -26,6 +26,7 @@ export const palette = {
 
     error: 'rgb(180, 81, 81)',
     warning: 'rgb(180, 168, 0)',
+    success: 'rgb(4, 138, 93)',
 }
 
 export const muiTextSize = 14

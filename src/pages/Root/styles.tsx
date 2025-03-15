@@ -275,21 +275,3 @@ export const ExperienceContainer = styled.div`
     display: flex;
     justify-content: center;
 `
-
-export const TextField = styled(MuiTextField)`
-    max-width: 95vw;
-
-    ${mediaQueriesIncludingDefault(
-        (multiplier) => `
-        width: ${900 * multiplier}px;
-    `,
-    )}
-`
-
-export const SendButton = styled(ResponsiveButton)`
-    ${mediaQueriesIncludingDefault(
-        (multiplier) => `
-        width: ${150 * multiplier}px;
-    `,
-    )}
-`
