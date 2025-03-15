@@ -3,9 +3,9 @@ declare let env: any
 const devConfig = {
     api: {
         host: 'api.kblue-dev.io',
-        protocol: 'http',
-        port: 30000,
-        url: 'http://api.kblue-dev.io:30000',
+        protocol: 'https',
+        port: 30001,
+        url: 'https://api.kblue-dev.io:30001',
     },
 }
 
