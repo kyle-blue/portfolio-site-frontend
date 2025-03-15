@@ -12,8 +12,6 @@ import {
     PortfolioProject,
     ProjectsContainer,
     RootContainer,
-    SendButton,
-    TextField,
     Title,
     UnderBackground,
 } from './styles'
@@ -29,6 +27,7 @@ import { Paths } from '../../Routes'
 import ScrollAnimation from 'react-animate-on-scroll'
 import { isMobile as isMobileFunc } from '../../utils/mobile'
 import { useScreenWidth } from '../../hooks/mobile'
+import ContactForm from './ContactForm'
 interface Props {}
 
 function scrollToId(id: string) {
@@ -392,35 +391,7 @@ export default function Root({}: Props) {
                     animateIn="fadeInTop"
                     style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
                 >
-                    <TextField
-                        slotProps={{
-                            inputLabel: {
-                                shrink: true,
-                            },
-                        }}
-                        color={'primary'}
-                        variant="outlined"
-                        label="email"
-                        placeholder="john.doe@gmail.com"
-                    />
-                    <MarginSpacer size={20} />
-                    <TextField
-                        color={'primary'}
-                        slotProps={{
-                            inputLabel: {
-                                shrink: true,
-                            },
-                        }}
-                        multiline
-                        rows={9}
-                        variant="outlined"
-                        label="message"
-                        placeholder="We have a position opening at x ..."
-                    />
-                    <MarginSpacer size={20} />
-                    <SendButton variant="contained" color="secondary">
-                        SEND
-                    </SendButton>
+                    <ContactForm />
                 </ScrollAnimation>
                 <MarginSpacer size={80} />
                 <Footer />
