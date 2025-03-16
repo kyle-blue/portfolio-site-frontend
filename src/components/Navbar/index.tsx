@@ -11,7 +11,7 @@ import {
     TitleMobile,
 } from './styles'
 import { CenterHorizontalFlex } from '../utility/CenterFlex'
-import { ButtonBase, IconButton } from '@mui/material'
+import { ButtonBase } from '@mui/material'
 import { isMobile as isMobileFunc } from '../../utils/mobile'
 import { useScreenWidth } from '../../hooks/mobile'
 import { useOnClickOutside } from '../../hooks/onClickOutside'
@@ -44,6 +44,7 @@ export default function Navbar({ elements }: Props): React.ReactElement {
                         <MenuContainer isMenuOpen={isMenuOpen} ref={menuRef}>
                             {elements.map(({ title, action }) => (
                                 <MenuItem
+                                    key={title.toString()}
                                     onClick={(e) => {
                                         setIsMenuOpen(false)
                                         action(e)
@@ -76,7 +77,7 @@ export default function Navbar({ elements }: Props): React.ReactElement {
         <CenterHorizontalFlex style={{ height: 'auto' }}>
             <MainContainer flexDirection={'row'}>
                 {elements.map(({ title, action }) => (
-                    <div onClick={action}>
+                    <div onClick={action} key={title.toString()}>
                         <ButtonBase style={{ color: 'rgba(255, 255, 255, 0.2)' }}>
                             <TitleContainer>
                                 <Title>{title}</Title>

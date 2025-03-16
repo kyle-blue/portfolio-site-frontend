@@ -6,7 +6,7 @@ export enum ScreenWidths {
 }
 
 export enum ScreenMultipliers {
-    MOBILE = 0.75,
+    MOBILE = 0.85,
     LAPTOP = 0.75,
     DESKTOP = 1,
     BIG_DESKTOP = 1.3,
