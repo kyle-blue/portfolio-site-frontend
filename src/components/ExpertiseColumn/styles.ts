@@ -4,6 +4,7 @@ import { mediaQueriesIncludingDefault } from '../../utils/mobile'
 export const MainContainer = styled.div`
     box-sizing: border-box;
     height: fit-content;
+    max-width: 95vw;
 
     ${mediaQueriesIncludingDefault(
         (multiplier) => `
@@ -39,7 +40,7 @@ export const Subtitle = styled.h2`
 
     ${mediaQueriesIncludingDefault(
         (multiplier) => `
-        font-size: ${14 * multiplier}px;
+        font-size: ${16 * multiplier}px;
     `,
     )}
 `

@@ -106,7 +106,7 @@ export const Description = styled.p`
         (multiplier) => `
         padding: ${10 * multiplier}px ${20 * multiplier}px;
         border-radius: ${8 * multiplier}px;
-        font-size: ${14 * multiplier}px;
+        font-size: ${16 * multiplier}px;
     `,
     )}
 `

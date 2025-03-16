@@ -10,9 +10,6 @@ import {
     mediaQueryMobile,
     ScreenWidths,
 } from '../../utils/mobile'
-import { TextField as MuiTextField } from '@mui/material'
-import ResponsiveButton from '../../components/Button'
-import { PlaceRounded } from '@mui/icons-material'
 
 export const RootContainer = styled.main`
     position: relative;
@@ -106,6 +103,7 @@ export const HomeHeadingContainer = styled.div`
         font-family: 'Poppins', sans-serif;
         font-weight: normal;
         letter-spacing: 8px;
+        word-wrap: normal;
         & > b {
             font-family: 'Poppins Bold', sans-serif;
             font-weight: bold;
@@ -147,7 +145,8 @@ export const HomeHeadingContainer = styled.div`
 
     ${mediaQueriesIncludingDefault(
         (multiplier) => `
-        height: ${850 * multiplier}px;
+        height: ${750 * multiplier}px;
+        padding: 0 ${30 * multiplier}px;
 
 
         & h1 {
@@ -158,12 +157,12 @@ export const HomeHeadingContainer = styled.div`
         }
         & h2 {
             font-size: ${24 * multiplier}px;
-            letter-spacing: ${8 * multiplier}px;
+            letter-spacing: ${7 * multiplier}px;
             & > b {};
         }
         & h3 {
-            font-size: ${16 * multiplier}px;
-            letter-spacing: ${6 * multiplier}px;
+            font-size: ${18 * multiplier}px;
+            letter-spacing: ${5 * multiplier}px;
             & > b {};
         }
         & h4 {
@@ -172,11 +171,17 @@ export const HomeHeadingContainer = styled.div`
             & > b {};
         }
         & h5 {
-            font-size: ${15 * multiplier}px;
+            font-size: ${14 * multiplier}px;
             letter-spacing: ${4 * multiplier}px;
         }
     `,
     )}
+
+    ${mediaQueryMobile(`
+        & h1 {
+            letter-spacing: 8px;
+        }
+    `)}
 `
 
 export const ExpertiseContainer = styled.div`
@@ -210,6 +215,9 @@ export const Title = styled.h1`
         letter-spacing: ${14 * multiplier}px;
     `,
     )}
+    ${mediaQueryMobile(`
+        letter-spacing: 3px;
+    `)}
 `
 
 export const PlaceIcon = styled(Place)`
@@ -240,7 +248,9 @@ export const ProjectsContainer = styled.div`
     )}
     ${mediaQueryMobile(`
         width: 400px;
-        max-width: 97vw;
+        max-width: 95vw;
+        margin-left: auto;
+        margin-right: auto;
     `)}
 `
 

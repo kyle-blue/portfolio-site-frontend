@@ -23,6 +23,7 @@ import { getCurrentScreenMultiplier } from '../../utils/mobile'
 import { isMobile as isMobileFunc } from '../../utils/mobile'
 import Button from '../Button'
 import Modal from '../Modal'
+import { maxWidth } from '@mui/system'
 
 interface JobInfo {
     title: string
@@ -69,7 +70,7 @@ export default function Experience({ jobs }: Props): React.ReactElement {
     const screenWidth = useScreenWidth()
     const multiplier = getCurrentScreenMultiplier(screenWidth)
     const isMobile = isMobileFunc(screenWidth)
-    const iconBoxWidth = 400 * multiplier
+    const iconBoxWidth = 350 * multiplier
     const [isMoreInfoModalOpen, setIsMoreInfoModalOpen] = useState(false)
     const [selectedJob, setSelectedJob] = useState<JobInfo>()
     const memoizedJobs = useMemo(() => jobs, [jobs])
