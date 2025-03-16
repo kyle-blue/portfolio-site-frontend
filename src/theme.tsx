@@ -127,6 +127,7 @@ export const GlobalStyle = css`
         -moz-osx-font-smoothing: grayscale;
         overflow-x: hidden;
         background-color: ${palette.secondaryOffWhite};
+        min-width: 0px;
     }
 
     h1,
