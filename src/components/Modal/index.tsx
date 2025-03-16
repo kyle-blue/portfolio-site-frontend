@@ -1,6 +1,8 @@
 import { JSXElementConstructor, ReactElement, useRef } from 'react'
-import { ExitButton, ExitIcon, InnerContainer, StyledModal, TitleContainer } from './styles'
+import { ExitButton, ExitIcon, GoBackButton, GoBackIcon, InnerContainer, StyledModal, TitleContainer } from './styles'
 import { useOnClickOutside } from '../../hooks/onClickOutside'
+import { useScreenWidth } from '../../hooks/mobile'
+import { isMobile as isMobileFunc } from '../../utils/mobile'
 
 interface Props {
     title: React.JSX.Element | string
@@ -10,16 +12,24 @@ interface Props {
 }
 
 export default function Modal({ title, children, open, setOpen }: Props): ReactElement {
+    const screenWidth = useScreenWidth()
+    const isMobile = isMobileFunc(screenWidth)
     const modalRef = useRef(null)
     useOnClickOutside([modalRef], () => setOpen(false))
     return (
         <StyledModal open={open} disablePortal={false}>
-            <InnerContainer ref={modalRef}>
+            <InnerContainer ref={modalRef} isMobile={isMobile}>
                 <TitleContainer>
                     <h1>{title}</h1>
-                    <ExitButton onClick={() => setOpen(false)}>
-                        <ExitIcon />
-                    </ExitButton>
+                    {isMobile ? (
+                        <GoBackButton onClick={() => setOpen(false)}>
+                            <GoBackIcon />
+                        </GoBackButton>
+                    ) : (
+                        <ExitButton onClick={() => setOpen(false)}>
+                            <ExitIcon />
+                        </ExitButton>
+                    )}
                 </TitleContainer>
                 {children}
             </InnerContainer>
