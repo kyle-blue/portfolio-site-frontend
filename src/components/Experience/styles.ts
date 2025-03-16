@@ -214,7 +214,7 @@ export const Subtitle = styled.h2`
     `,
     )}
 `
-export const Description = styled.p`
+export const Description = styled.span`
     margin: 0;
     color: #ffffff;
     font-size: 14px;
@@ -238,4 +238,38 @@ export const DescriptionContainer = styled.div`
         height: ${descriptionHeight * multiplier}px;
     `,
     )}
+`
+
+export const InnerModalContainer = styled.div`
+    width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 10px 80px;
+    padding-bottom: 20px;
+
+    & > ul > li {
+        font-size: 15px;
+        font-family: 'Poppins Light', sans-serif;
+        color: #414141;
+        margin-bottom: 30px;
+    }
+`
+
+export const ModalSubtitle = styled.h2`
+    font-size: 18px;
+    font-family: 'Poppins Light', sans-serif;
+    color: #414141;
+    margin: 0;
+    text-align: center;
+`
+
+export const ModalDate = styled.h3`
+    font-size: 16px;
+    font-family: 'Poppins Light', sans-serif;
+    color: #5e5e5e;
+    margin: 0;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: lighter;
 `
