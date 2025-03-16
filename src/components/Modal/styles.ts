@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { IconButton, Modal as MuiModal } from '@mui/material'
 import { palette } from '../../theme'
-import { CloseRounded } from '@mui/icons-material'
+import { ArrowBackRounded, CloseRounded } from '@mui/icons-material'
 import { mediaQueriesIncludingDefault } from '../../utils/mobile'
 
 export const StyledModal = styled(MuiModal)`
@@ -9,23 +9,24 @@ export const StyledModal = styled(MuiModal)`
     justify-content: center;
     align-items: center;
 `
-export const InnerContainer = styled.div`
+export const InnerContainer = styled.div<{ isMobile: boolean }>`
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-    background: #e9e9e9;
+    background: #dcdbdf;
     position: relative;
-    color: ${palette.offBlack}
-        ${mediaQueriesIncludingDefault(
-            (multiplier) => `
+    color: ${palette.offWhite};
+    ${({ isMobile }) => isMobile && 'min-width: 100%; min-height: 100%;'}
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
         padding: ${5 * multiplier}px ${10 * multiplier}px;
         border-radius: ${10 * multiplier}px;
     `,
-        )};
+    )};
 `
 export const TitleContainer = styled.div`
-    width: 90%;
+    width: 80%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center;
@@ -63,8 +64,29 @@ export const ExitIcon = styled(CloseRounded)`
     color: ${palette.offBlack};
     ${mediaQueriesIncludingDefault(
         (multiplier) => `
-        width: ${20 * multiplier}px;
-        height: ${20 * multiplier}px;
+        width: ${24 * multiplier}px;
+        height: ${24 * multiplier}px;
+    `,
+    )}
+`
+
+export const GoBackButton = styled(IconButton)`
+    position: absolute;
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        top: ${13 * multiplier}px;
+        left: ${13 * multiplier}px;
+    `,
+    )}
+`
+
+export const GoBackIcon = styled(ArrowBackRounded)`
+    color: ${palette.offBlack};
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        width: ${24 * multiplier}px;
+        height: ${24 * multiplier}px;
     `,
     )}
 `

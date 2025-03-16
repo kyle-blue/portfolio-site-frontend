@@ -23,7 +23,7 @@ export default function ExpertiseColumn({ title, subtitle, rows }: Props): React
                     <RowContainer key={text}>
                         <IconsContainer>
                             {icons.map((name) => (
-                                <AssetIcon name={name} size={32} />
+                                <AssetIcon key={name} name={name} size={32} />
                             ))}
                         </IconsContainer>
                         <RowText>{text}</RowText>
