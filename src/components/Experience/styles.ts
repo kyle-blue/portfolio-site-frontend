@@ -50,7 +50,7 @@ export const JobBox = styled(ScrollAnimation)<{ num: number }>`
     ${({ num }) =>
         mediaQueryMobile(`
         height: ${jobBoxHeight * ScreenMultipliers.MOBILE * 1.1}px;
-
+        max-width: 95vw;
         grid-row: ${(num + 1) * 2} / span 1;
         grid-column: 1 / span 1;
         margin-left: auto;
@@ -209,7 +209,7 @@ export const Subtitle = styled.h2`
 
     ${mediaQueriesIncludingDefault(
         (multiplier) => `
-        font-size: ${14 * multiplier}px;
+        font-size: ${16 * multiplier}px;
         margin-bottom: ${15 * multiplier}px;
     `,
     )}
@@ -224,7 +224,7 @@ export const Description = styled.span`
 
     ${mediaQueriesIncludingDefault(
         (multiplier) => `
-        font-size: ${14 * multiplier}px;
+        font-size: ${16 * multiplier}px;
     `,
     )}
 `
@@ -241,35 +241,70 @@ export const DescriptionContainer = styled.div`
 `
 
 export const InnerModalContainer = styled.div`
-    width: 800px;
     max-height: 90vh;
     overflow-y: auto;
     box-sizing: border-box;
-    padding: 10px 80px;
     padding-bottom: 20px;
-
+    max-width: 100vw;
     & > ul > li {
         font-size: 15px;
         font-family: 'Poppins Light', sans-serif;
         color: #414141;
         margin-bottom: 30px;
     }
+    & li {
+        font-size: 15px;
+        font-family: 'Poppins Light', sans-serif;
+        color: #414141;
+    }
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        width: ${800 * multiplier}px;
+        padding: ${10 * multiplier}px ${70 * multiplier}px;
+        padding-bottom: ${20 * multiplier}px;
+
+        & > ul > li {
+            font-size: ${15 * multiplier}px;
+        }
+        & li {
+            font-size: ${15 * multiplier}px;
+        }
+    `,
+    )}
+    ${mediaQueryMobile(`
+        padding: 20px 25px;
+
+        & li {
+            margin-left: -15px
+        }
+    `)}
 `
 
 export const ModalSubtitle = styled.h2`
-    font-size: 18px;
     font-family: 'Poppins Light', sans-serif;
     color: #414141;
     margin: 0;
     text-align: center;
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        font-size: ${18 * multiplier}px;
+    `,
+    )}
 `
 
 export const ModalDate = styled.h3`
-    font-size: 16px;
     font-family: 'Poppins Light', sans-serif;
     color: #5e5e5e;
     margin: 0;
-    margin-bottom: 30px;
     text-align: center;
     font-weight: lighter;
+
+    ${mediaQueriesIncludingDefault(
+        (multiplier) => `
+        font-size: ${16 * multiplier}px;
+        margin-bottom: ${30 * multiplier}px;
+    `,
+    )}
 `

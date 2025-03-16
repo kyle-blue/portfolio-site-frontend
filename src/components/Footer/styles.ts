@@ -9,6 +9,8 @@ export const MainContainer = styled.footer`
     align-items: center;
     text-align: center;
     background: rgba(0, 0, 0, 0.3);
+    max-width: 100%;
+    box-sizing: border-box;
 
     ${mediaQueriesIncludingDefault(
         (multiplier) => `
@@ -27,7 +29,7 @@ export const ContactContainer = styled.div`
     ${mediaQueriesIncludingDefault(
         (multiplier) => `
         width: ${500 * multiplier}px;
-        font-size: ${15 * multiplier}px;
+        font-size: ${16 * multiplier}px;
     `,
     )}
 `
