@@ -187,7 +187,7 @@ export default function Root({}: Props) {
                                     buttons={[
                                         {
                                             text: 'VIDEO',
-                                            action: () => navigate(Paths.IN_PROGRESS),
+                                            action: () => (window.location.href = 'https://www.youtube.com/watch?v=5bxGmh4ANnk'),
                                         },
                                         {
                                             text: 'GITHUB',
