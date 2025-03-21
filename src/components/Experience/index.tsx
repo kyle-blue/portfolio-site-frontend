@@ -23,7 +23,6 @@ import { getCurrentScreenMultiplier } from '../../utils/mobile'
 import { isMobile as isMobileFunc } from '../../utils/mobile'
 import Button from '../Button'
 import Modal from '../Modal'
-import { maxWidth } from '@mui/system'
 
 interface JobInfo {
     title: string
