@@ -16,7 +16,7 @@ import {
     UnderBackground,
 } from './styles'
 import ExpertiseColumn from '../../components/ExpertiseColumn'
-import { MarginSpacer } from '../../components/utility/Spacer'
+import { MarginSpacer, Spacer } from '../../components/utility/Spacer'
 import gptOverlay from '../../assets/images/gpt-overlay.png'
 import coinOverlay from '../../assets/images/coin-overlay.png'
 import portfolioOverlay from '../../assets/images/portfolio-overlay.png'
@@ -105,6 +105,7 @@ export default function Root({}: Props) {
                                 },
                             ]}
                         />
+                        <Spacer style={{ minWidth: 20 }} />
                         <ExpertiseColumn
                             title={'BACKEND'}
                             subtitle={'Experience making performant and secure REST API’s.'}
@@ -127,6 +128,7 @@ export default function Root({}: Props) {
                                 },
                             ]}
                         />
+                        <Spacer style={{ minWidth: 20 }} />
                         <ExpertiseColumn
                             title={'DEVOPS'}
                             subtitle={'Experience creating and managing scalable cloud services.'}
