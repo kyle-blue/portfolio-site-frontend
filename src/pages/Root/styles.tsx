@@ -185,20 +185,24 @@ export const HomeHeadingContainer = styled.div`
 `
 
 export const ExpertiseContainer = styled.div`
-    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    max-width: 97vw;
+    margin-left: auto;
+    margin-right: auto;
 
     ${mediaQueriesIncludingDefault(
         (multiplier) => `
         margin-top: ${50 * multiplier}px;
-        gap: ${100 * multiplier}px;
+        width: ${1300 * multiplier}px;
     `,
     )}
 
     ${mediaQueryMobile(`
         flex-direction: column;
+        gap: 30px;
+        align-items: center;
     `)}
 `
 
@@ -237,6 +241,7 @@ export const ProjectsContainer = styled.div`
     padding: 0;
     box-sizing: border-box;
     overflow: hidden;
+    max-width: 95vw;
 
     ${mediaQueriesIncludingDefault(
         (multiplier) => `
@@ -281,7 +286,7 @@ export const CoinProject = styled(Project)`
 `
 
 export const ExperienceContainer = styled.div`
-    width: 100%;
+    width: 97%;
     display: flex;
     justify-content: center;
 `

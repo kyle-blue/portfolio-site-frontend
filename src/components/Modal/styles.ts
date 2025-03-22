@@ -4,10 +4,9 @@ import { palette } from '../../theme'
 import { ArrowBackRounded, CloseRounded } from '@mui/icons-material'
 import { mediaQueriesIncludingDefault } from '../../utils/mobile'
 
-export const StyledModal = styled(MuiModal)`
+export const StyledModal = styled(MuiModal)<{ isMobile: boolean }>`
     display: flex;
-    justify-content: center;
-    align-items: center;
+    ${({ isMobile }) => !isMobile && 'justify-content: center; align-items: center;'}
 `
 export const InnerContainer = styled.div<{ isMobile: boolean }>`
     display: flex;
