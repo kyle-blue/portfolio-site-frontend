@@ -244,30 +244,34 @@ export const InnerModalContainer = styled.div`
     max-height: 90vh;
     overflow-y: auto;
     box-sizing: border-box;
-    padding-bottom: 20px;
     max-width: 100vw;
-    & > ul > li {
-        font-size: 15px;
+
+    & p {
+        font-family: 'Poppins Light', sans-serif;
+        color: #414141;
+    }
+    & li {
+        font-family: 'Poppins Light', sans-serif;
+        color: #414141;
+    }
+    & ul > li {
         font-family: 'Poppins Light', sans-serif;
         color: #414141;
         margin-bottom: 30px;
-    }
-    & li {
-        font-size: 15px;
-        font-family: 'Poppins Light', sans-serif;
-        color: #414141;
     }
 
     ${mediaQueriesIncludingDefault(
         (multiplier) => `
         width: ${800 * multiplier}px;
-        padding: ${10 * multiplier}px ${70 * multiplier}px;
-        padding-bottom: ${20 * multiplier}px;
+        padding: ${50 * multiplier}px ${70 * multiplier}px;
 
-        & > ul > li {
+        & p {
             font-size: ${15 * multiplier}px;
         }
         & li {
+            font-size: ${15 * multiplier}px;
+        }
+        & ul > li {
             font-size: ${15 * multiplier}px;
         }
     `,

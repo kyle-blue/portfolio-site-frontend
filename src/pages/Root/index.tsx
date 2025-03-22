@@ -16,7 +16,7 @@ import {
     UnderBackground,
 } from './styles'
 import ExpertiseColumn from '../../components/ExpertiseColumn'
-import { MarginSpacer } from '../../components/utility/Spacer'
+import { MarginSpacer, Spacer } from '../../components/utility/Spacer'
 import gptOverlay from '../../assets/images/gpt-overlay.png'
 import coinOverlay from '../../assets/images/coin-overlay.png'
 import portfolioOverlay from '../../assets/images/portfolio-overlay.png'
@@ -105,6 +105,7 @@ export default function Root({}: Props) {
                                 },
                             ]}
                         />
+                        <Spacer style={{ minWidth: 20 }} />
                         <ExpertiseColumn
                             title={'BACKEND'}
                             subtitle={'Experience making performant and secure REST API’s.'}
@@ -127,6 +128,7 @@ export default function Root({}: Props) {
                                 },
                             ]}
                         />
+                        <Spacer style={{ minWidth: 20 }} />
                         <ExpertiseColumn
                             title={'DEVOPS'}
                             subtitle={'Experience creating and managing scalable cloud services.'}
@@ -243,35 +245,60 @@ export default function Root({}: Props) {
                                 startDate: 'July 2021',
                                 endDate: 'June 2022',
                                 description: (
-                                    <ul>
-                                        <li>
-                                            Implemented JavaScript edge logic on more than 3 different CDN platforms (Cloudflare, Akamai,
-                                            AWS Cloudfront) to reduce latency and cache database hits
-                                        </li>
-                                        <li>
-                                            Architected, implemented and led a project (a product integration) from scratch on Akamai
-                                            platform in JavaScript/Typescript to provide compatibility with a customers preferred platform
-                                            and secure a contract worth over $1,000,000
-                                            <ul>
-                                                <li>
-                                                    Profiled and optimised integration to respect the tight limitations of under 2.5MB
-                                                    memory and 20ms CPU time set by Akamai EdgeWorkers
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            Coordinated with 3 QA Engineers among the wider team of around 10-15 to ensure work was testable
-                                            early in the SDLC
-                                        </li>
-                                        <li>
-                                            Communicated and operated closely and with clients (B2B) to fix and diagnose issues regarding
-                                            setup and implementation of integrations on the platform
-                                        </li>
-                                        <li>
-                                            Performed rigorous distributed load testing for the new Akamai integration ensuring the backend
-                                            could handle over additional 300,000 RPS due to the new client
-                                        </li>
-                                    </ul>
+                                    <>
+                                        <p>
+                                            Primarily B2B bot mitigation and cybersecurity company powered by AI. Liaised directly with
+                                            established renowned companies to secure contracts and implement integrations for specialised
+                                            use cases
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                Implemented JavaScript edge logic on more than 3 different CDN platforms (Cloudflare,
+                                                Akamai, AWS Cloudfront) to reduce latency and cache database hits{' '}
+                                            </li>
+                                            <li>
+                                                Architected, implemented and led a product integration from scratch for Akamai EdgeWorkers
+                                                to provide compatibility with a customers preferred platform and secure a contract worth
+                                                over $1,000,000{' '}
+                                                <ul>
+                                                    <li>
+                                                        Profiled and optimised integration to respect the tight limitations of under 2.5MB
+                                                        memory and 20ms CPU time set by Akamai EdgeWorkers{' '}
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                Coordinated with 3 QA Engineers among the wider team of around 10-15 to ensure work was
+                                                testable early in the SDLC{' '}
+                                            </li>
+                                            <li>
+                                                Communicated and collaborated with clients (B2B) to fix and diagnose issues regarding setup
+                                                and implementation of integrations on the platform{' '}
+                                            </li>
+                                            <li>
+                                                Performed rigorous distributed load testing for the new Akamai integration ensuring the
+                                                backend could handle over 100,000 additional RPS due to the new client
+                                            </li>
+                                        </ul>
+                                        <p>
+                                            <strong>
+                                                <em>Technologies</em>
+                                            </strong>
+                                            :<br />
+                                            <strong>
+                                                <em>Frontend</em>
+                                            </strong>
+                                            : TypeScript/JavaScript, Vue |{' '}
+                                            <strong>
+                                                <em>Backend</em>
+                                            </strong>
+                                            : TypeScript/JavaScript, Python, NodeJS, Flask, ElasticSearch, PostgreSQL |{' '}
+                                            <strong>
+                                                <em>DevOps &amp; Cloud</em>
+                                            </strong>
+                                            : AWS, Cloudflare, Akamai, Docker
+                                        </p>
+                                    </>
                                 ),
                             },
                             {
@@ -295,68 +322,71 @@ export default function Root({}: Props) {
                                 startDate: 'August 2022',
                                 endDate: 'December 2023',
                                 description: (
-                                    <ul>
-                                        <li>
-                                            Led a project from beginning to end to fully isolate integration tests in the largest service
-                                            and improve the deployment pipeline modifying Rust Microservices, HashiCorp Vault secrets, the
-                                            Python Flask backend monolith, and NodeJS TypeScript script code in the process. This produced:
-                                            <ul>
-                                                <li>
-                                                    Approximately a 30% reduction in re-run tests and thus CircleCI credit cost
-                                                    (simultaneous tests would collide with one other)
-                                                </li>
-                                                <li>
-                                                    The capability of allowing more than 1 test suite to execute simultaneously mitigating
-                                                    the deployment pipeline traffic
-                                                </li>
-                                                <li>Around 50% increased integration test speeds due to additional parallelism</li>
-                                                <li>A general increase in team throughput by removing a bottleneck in our workflow</li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            Practised Test Driven Development principles to ensure code quality and avoid tech debt build up
-                                        </li>
-                                        <li>
-                                            Migrated an old configuration system to a new graph based configuration system in Rust which
-                                            allows for configuration versioning, supports more than 1 simultaneous users, and provides more
-                                            complete validation causing:
-                                            <ul>
-                                                <li>
-                                                    A drastic reduction in customer issues related to copying configuration across different
-                                                    environments
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            Completely revamped the frontend in React for configuration
-                                            <ul>
-                                                <li>
-                                                    Worked closely with UI/UX to ensure the new frontend was intuitive and met end-user
-                                                    requirements
-                                                </li>
-                                                <li>
-                                                    Caused a notable reduction in support tickets that were non-issues, reducing developer
-                                                    context switching
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            Hosted refinement, retrospectives, and other team (or scrum related) ceremonies for a team of
-                                            5-10 people, and presented new changes at all-hands in front of an audience of over 50 people
-                                        </li>
-                                        <li>
-                                            Increased technical documentation coverage for over 5 different major services to reduce
-                                            knowledge silos
-                                        </li>
-                                        <li>
-                                            Investigated, triaged, fixed and resolved customer issues for over 20 services in a timely
-                                            fashion
-                                        </li>
-                                        <li>
-                                            Monitored system services through Grafana, Loki, Retool, and Datadog. Rapidly deployed fixes to
-                                            critical issues and vulnerabilities
-                                        </li>
-                                    </ul>
+                                    <>
+                                        <p>
+                                            Conducted amongst a diverse, talented development team of 10 (amongst other teams) in the KYC
+                                            sector. Acquired by Moody’s Analytics during incumbency. Embarked on major projects to meet
+                                            acquisition demands
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                Led a project from beginning to end to fully isolate integration tests in the largest
+                                                producing:{' '}
+                                                <ul>
+                                                    <li>
+                                                        Approximately a 30% reduction in re-run tests (simultaneous tests would
+                                                        collide){' '}
+                                                    </li>
+                                                    <li>Around 50% increased integration test speeds due to additional parallelism </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                Practised Test Driven Development to enforce robust code and maintain 80% test code
+                                                coverage{' '}
+                                            </li>
+                                            <li>
+                                                Migrated an old configuration system to a new graph (DAG) based versioned system in Rust
+                                                which supports more than 1 simultaneous users &amp; provides more complete validation{' '}
+                                                <ul>
+                                                    <li>
+                                                        Led to a drastic reduction in customer issues related to copying configuration
+                                                        across different environments{' '}
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                Modernized configuration service&#39;s frontend, improving code maintainability and user
+                                                experience{' '}
+                                            </li>
+                                            <li>
+                                                Monitored system services through Grafana, Loki, Retool, and Datadog. Rapidly resolved and
+                                                deployed fixes to critical issues and vulnerabilities to ensure over 99.9% system
+                                                uptime{' '}
+                                            </li>
+                                            <li>
+                                                Directed core ceremonies such as standup, retrospectives, post-incident meetings, support
+                                                handover, and new feature showcases
+                                            </li>
+                                        </ul>
+                                        <p>
+                                            <strong>
+                                                <em>Technologies</em>
+                                            </strong>
+                                            :<br />
+                                            <strong>
+                                                <em>Frontend</em>
+                                            </strong>
+                                            : TypeScript/JavaScript, React |{' '}
+                                            <strong>
+                                                <em>Backend</em>
+                                            </strong>
+                                            : Python, Rust, NodeJS, Flask, PostgreSQL, MySQL, ElasticSearch |{' '}
+                                            <strong>
+                                                <em>DevOps &amp; Cloud</em>
+                                            </strong>
+                                            : AWS, GCP, Azure, Docker, Kubernetes
+                                        </p>
+                                    </>
                                 ),
                             },
                             {
@@ -366,16 +396,56 @@ export default function Root({}: Props) {
                                 startDate: 'April 2024',
                                 endDate: 'January 2025',
                                 description: (
-                                    <ul>
-                                        <li>Introduced automated integration test suite to combat the platform instability</li>
-                                        <li>Worked directly with customers to promptly solve support issues</li>
-                                        <li>Recreate many portions of the site to be reactive and mobile friendly</li>
-                                        <li>
-                                            Made regular contributions to external roles such as UI/UX and marketing as a result of smaller
-                                            team size
-                                        </li>
-                                        <li>Modularised, simplified, optimised and future proofed old legacy code</li>
-                                    </ul>
+                                    <>
+                                        <p>
+                                            Part of a small development team for a budding new music AI startup. B2C revenue grew by over
+                                            200% during tenure
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                Engineered a Cypress-based automated integration test suite, resulting in a 40% reduction in
+                                                critical platform errors and a 25% faster release cycle{' '}
+                                            </li>
+                                            <li>
+                                                Investigated and resolved escalated customer-reported software bugs and platform issues
+                                                weekly, achieving a 95% satisfaction rating and directly improving the user experience{' '}
+                                            </li>
+                                            <li>
+                                                Interviewed and directly corresponded with customers to obtain insightful feedback and steer
+                                                future initiatives{' '}
+                                            </li>
+                                            <li>
+                                                Refactored and optimised key components of the site to enhance responsiveness and ensure
+                                                seamless mobile compatibility using best practices{' '}
+                                            </li>
+                                            <li>
+                                                Took initiative in traditionally distinct roles such as UI/UX and marketing strategy as a
+                                                result of smaller team size (8 people){' '}
+                                            </li>
+                                            <li>
+                                                Revamped the architecture of a critical legacy system, refactoring core components to be
+                                                modular and implementing modern design patterns
+                                            </li>
+                                        </ul>
+                                        <p>
+                                            <strong>
+                                                <em>Technologies</em>
+                                            </strong>
+                                            :<br />
+                                            <strong>
+                                                <em>Frontend</em>
+                                            </strong>
+                                            : TypeScript/JavaScript, React |{' '}
+                                            <strong>
+                                                <em>Backend</em>
+                                            </strong>
+                                            : TypeScript/JavaScript, Python, Flask, NodeJS, Google Datastore (NoSQL) |{' '}
+                                            <strong>
+                                                <em>DevOps &amp; Cloud</em>
+                                            </strong>
+                                            : Google Cloud Platform, Docker
+                                        </p>
+                                    </>
                                 ),
                             },
                         ]}

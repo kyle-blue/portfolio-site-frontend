@@ -17,7 +17,7 @@ export default function Modal({ title, children, open, setOpen }: Props): ReactE
     const modalRef = useRef(null)
     useOnClickOutside([modalRef], () => setOpen(false))
     return (
-        <StyledModal open={open} disablePortal={false}>
+        <StyledModal open={open} disablePortal={false} isMobile={isMobile}>
             <InnerContainer ref={modalRef} isMobile={isMobile}>
                 <TitleContainer>
                     <h1>{title}</h1>
