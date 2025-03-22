@@ -23,6 +23,7 @@ import { getCurrentScreenMultiplier } from '../../utils/mobile'
 import { isMobile as isMobileFunc } from '../../utils/mobile'
 import Button from '../Button'
 import Modal from '../Modal'
+import { useLocation, useNavigate, useNavigation } from 'react-router-dom'
 
 interface JobInfo {
     title: string
@@ -41,41 +42,58 @@ interface JobProps {
     i: number
     isMobile: boolean
     iconBoxWidth: number
-    setIsMoreInfoModalOpen: (x: boolean) => void
 }
 
-const Job = ({ job, i, isMobile, iconBoxWidth, setIsMoreInfoModalOpen }: JobProps) => (
-    <JobBox num={i} animateOnce animateIn="fadeInTop">
-        {isMobile && (
-            <Subtitle>
-                {job.startDate} - {job.endDate}
-            </Subtitle>
-        )}
-        <Title>{job.title}</Title>
-        <Subtitle>{job.subtitle}</Subtitle>
+const Job = ({ job, i, isMobile, iconBoxWidth }: JobProps) => {
+    const navigate = useNavigate()
+    const navigation = useNavigation()
+    const currentPath = navigation.location?.pathname ?? '/'
 
-        <IconsBox icons={job.uses} showLabel={false} width={iconBoxWidth} />
-        <DescriptionContainer>
-            <Description>{job.description}</Description>
-        </DescriptionContainer>
-        <Spacer />
-        <Button variant={'contained'} color="secondary" onClick={() => setIsMoreInfoModalOpen(true)}>
-            MORE INFO
-        </Button>
-    </JobBox>
-)
+    return (
+        <JobBox num={i} animateOnce animateIn="fadeInTop">
+            {isMobile && (
+                <Subtitle>
+                    {job.startDate} - {job.endDate}
+                </Subtitle>
+            )}
+            <Title>{job.title}</Title>
+            <Subtitle>{job.subtitle}</Subtitle>
+
+            <IconsBox icons={job.uses} showLabel={false} width={iconBoxWidth} />
+            <DescriptionContainer>
+                <Description>{job.description}</Description>
+            </DescriptionContainer>
+            <Spacer />
+            <Button
+                variant={'contained'}
+                color="secondary"
+                onClick={() => navigate(`${currentPath}#${job.title.toLocaleLowerCase().replace(' ', '')}`)}
+            >
+                MORE INFO
+            </Button>
+        </JobBox>
+    )
+}
 
 export default function Experience({ jobs }: Props): React.ReactElement {
     const screenWidth = useScreenWidth()
     const multiplier = getCurrentScreenMultiplier(screenWidth)
     const isMobile = isMobileFunc(screenWidth)
     const iconBoxWidth = 350 * multiplier
-    const [isMoreInfoModalOpen, setIsMoreInfoModalOpen] = useState(false)
-    const [selectedJob, setSelectedJob] = useState<JobInfo>()
+    const location = useLocation()
+    const navigate = useNavigate()
+    const urlHash = location.hash.replace('#', '')
+
     const memoizedJobs = useMemo(() => jobs, [jobs])
 
+    const selectedJob = jobs.find((x) => x.title.toLocaleLowerCase().replace(' ', '') === urlHash)
+    console.log(urlHash)
     const JobModal = (
-        <Modal open={isMoreInfoModalOpen} setOpen={setIsMoreInfoModalOpen} title={selectedJob?.title ?? ''}>
+        <Modal
+            open={jobs.map((x) => x.title.toLocaleLowerCase().replace(' ', '')).includes(urlHash)}
+            setOpen={() => navigate(location.pathname)}
+            title={selectedJob?.title ?? ''}
+        >
             <InnerModalContainer>
                 <ModalSubtitle>{selectedJob?.subtitle}</ModalSubtitle>
                 <ModalDate>
@@ -92,17 +110,7 @@ export default function Experience({ jobs }: Props): React.ReactElement {
                 {JobModal}
                 <MainContainer numElements={jobs.length}>
                     {jobs.map((job, i) => (
-                        <Job
-                            job={job}
-                            i={i}
-                            key={job.title}
-                            iconBoxWidth={iconBoxWidth}
-                            isMobile={isMobile}
-                            setIsMoreInfoModalOpen={(isOpen: boolean) => {
-                                setSelectedJob(job)
-                                setIsMoreInfoModalOpen(isOpen)
-                            }}
-                        />
+                        <Job job={job} i={i} key={job.title} iconBoxWidth={iconBoxWidth} isMobile={isMobile} />
                     ))}
                     <VerticalLineContainer numRows={jobs.length}>
                         <VerticalLine />
@@ -125,17 +133,7 @@ export default function Experience({ jobs }: Props): React.ReactElement {
             <MainContainer numElements={jobs.length}>
                 {memoizedJobs.map((job, i) => (
                     <React.Fragment key={job.title}>
-                        <Job
-                            job={job}
-                            i={i}
-                            key={job.title}
-                            iconBoxWidth={iconBoxWidth}
-                            isMobile={isMobile}
-                            setIsMoreInfoModalOpen={(isOpen: boolean) => {
-                                setSelectedJob(job)
-                                setIsMoreInfoModalOpen(isOpen)
-                            }}
-                        />
+                        <Job job={job} i={i} key={job.title} iconBoxWidth={iconBoxWidth} isMobile={isMobile} />
 
                         <HorizontalLine num={i} animateOnce animateIn="fadeInTop" />
                         <DateContainer num={i} animateOnce animateIn="fadeInTop">
