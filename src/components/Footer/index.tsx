@@ -7,7 +7,7 @@ export default function Footer(): React.ReactElement {
         <MainContainer>
             <ContactContainer>
                 <p>
-                    <b>Contact Email</b>:{'      '}kyle.blue.nuttall@gmail.com
+                    <b>Contact Email</b>:{'      '}kyle.blue.doidge@gmail.com
                 </p>
             </ContactContainer>
             <p>
