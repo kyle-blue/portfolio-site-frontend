@@ -6,7 +6,6 @@
     "author": "Kyle Doidge <kyle.blue.doidge@gmail.com>",
     "license": "MIT",
     "main": "src/index.tsx",
-    "type": "module",
     "scripts": {
         "start": "ENVIRONMENT=development vite --debug serve",
         "build": "ENVIRONMENT=production vite build",
