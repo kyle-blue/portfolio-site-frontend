@@ -453,7 +453,9 @@ export default function Root({}: Props) {
                 </ExperienceContainer>
                 <MarginSpacer size={80} />
                 <ScrollAnimation animateOnce animateIn="fadeInTop">
-                    <Title id="contact">CONTACT</Title>
+                    <Title id="contact" data-test-id="contact-title">
+                        CONTACT
+                    </Title>
                 </ScrollAnimation>
                 <MarginSpacer size={30} />
                 <ScrollAnimation

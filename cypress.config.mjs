@@ -8,6 +8,7 @@ export default defineConfig({
       on("file:preprocessor", vitePreprocessor({}))
     },
     baseUrl: "https://www.kblue-dev.io:30001",
+    scrollBehavior: "center"
   },
   defaultBrowser: "chrome",
 });

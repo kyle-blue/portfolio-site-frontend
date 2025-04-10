@@ -30,13 +30,21 @@ export default function ContactForm(): React.ReactElement {
 
     return (
         <>
-            <Snackbar type="error" open={!!error} message={error} autoHideDuration={50000} onClose={() => setError('')} />
+            <Snackbar
+                type="error"
+                open={!!error}
+                message={error}
+                autoHideDuration={50000}
+                onClose={() => setError('')}
+                data-test-id="contact-error-snackbar"
+            />
             <Snackbar
                 type="success"
                 open={!!successMessage}
                 message={successMessage}
                 autoHideDuration={5000}
                 onClose={() => setSuccessMessage('')}
+                data-test-id="contact-success-snackbar"
             />
             <TextField
                 slotProps={{
@@ -51,6 +59,7 @@ export default function ContactForm(): React.ReactElement {
                 variant="outlined"
                 label="name"
                 placeholder="John Doe"
+                data-test-id="contact-name-input"
             />
             <MarginSpacer size={20} />
             <TextField
@@ -66,6 +75,7 @@ export default function ContactForm(): React.ReactElement {
                 variant="outlined"
                 label="email"
                 placeholder="john.doe@gmail.com"
+                data-test-id="contact-email-input"
             />
             <MarginSpacer size={20} />
             <TextField
@@ -83,6 +93,7 @@ export default function ContactForm(): React.ReactElement {
                 variant="outlined"
                 label="message"
                 placeholder="We have a position opening at x ..."
+                data-test-id="contact-message-input"
             />
             <MarginSpacer size={20} />
             <SendButton
@@ -113,6 +124,7 @@ export default function ContactForm(): React.ReactElement {
                         sendEmails()
                     }
                 }}
+                data-test-id="contact-submit-button"
             >
                 SEND
             </SendButton>

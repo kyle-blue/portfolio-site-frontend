@@ -36,7 +36,9 @@ export const muiTheme = createTheme({
     typography: {
         fontFamily: `"Poppins Semi Bold", "Helvetica", "Arial", sans-serif`,
         fontSize: muiTextSize,
-        color: palette.white,
+        allVariants: {
+            color: palette.white,
+        },
     },
     palette: {
         mode: 'light',
@@ -125,7 +127,7 @@ export const GlobalStyle = css`
         font-family: 'Poppins', 'Helvetica', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        overflow-x: hidden;
+        overflow-x: clip;
         background-color: ${palette.secondaryOffWhite};
         min-width: 0px;
     }

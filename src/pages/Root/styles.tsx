@@ -14,7 +14,7 @@ import {
 export const RootContainer = styled.main`
     position: relative;
     height: fit-content;
-    overflow: hidden;
+    overflow: clip;
     width: 100%;
     background: rgba(52, 43, 55, 0.6);
     background: linear-gradient(180deg, rgba(37, 197, 130, 0.2) -10%, rgba(210, 182, 236, 0.3) 110%);
@@ -240,7 +240,7 @@ export const ProjectsContainer = styled.div`
     flex-direction: column;
     padding: 0;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow: clip;
     max-width: 95vw;
 
     ${mediaQueriesIncludingDefault(

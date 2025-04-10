@@ -7,7 +7,7 @@ export const MainContainer = styled.div`
     margin: 0;
     display: flex;
 
-    overflow: hidden;
+    overflow: clip;
     position: relative;
     justify-content: center;
     align-items: center;
@@ -22,7 +22,7 @@ export const InnerContainer = styled.div`
     flex-direction: column;
     justify-content: space-between;
 
-    overflow: hidden;
+    overflow: clip;
     position: relative;
     background-color: rgba(0, 0, 0, 0.1);
     height: 100%;
@@ -93,7 +93,7 @@ export const Title = styled.h1`
 export const Description = styled.p`
     word-wrap: normal;
     min-height: fit-content;
-    overflow: hidden;
+    overflow: clip;
 
     box-sizing: border-box;
     color: #ffffff;

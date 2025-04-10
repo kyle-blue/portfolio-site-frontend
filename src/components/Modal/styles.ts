@@ -12,7 +12,7 @@ export const InnerContainer = styled.div<{ isMobile: boolean }>`
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: hidden;
+    overflow: clip;
     background: #dcdbdf;
     position: relative;
     color: ${palette.offWhite};
