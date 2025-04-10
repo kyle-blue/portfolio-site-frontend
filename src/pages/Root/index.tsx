@@ -463,7 +463,7 @@ export default function Root({}: Props) {
                     animateIn="fadeInTop"
                     style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
                 >
-                    <ContactForm />
+                    <ContactForm data-test-id="contact-form" />
                 </ScrollAnimation>
                 <MarginSpacer size={80} />
                 <Footer />

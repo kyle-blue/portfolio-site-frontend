@@ -4,8 +4,12 @@ import { MarginSpacer } from '../../components/utility/Spacer'
 import Snackbar from '../../components/Snackbar'
 import Axios from 'axios'
 import config from '../../config'
+import { CenterFlex } from '@/components/utility/CenterFlex'
 
-export default function ContactForm(): React.ReactElement {
+interface Props {
+    [_: string]: any
+}
+export default function ContactForm({ ...rest }: Props): React.ReactElement {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
@@ -29,7 +33,7 @@ export default function ContactForm(): React.ReactElement {
     }
 
     return (
-        <>
+        <div {...rest}>
             <Snackbar
                 type="error"
                 open={!!error}
@@ -96,38 +100,40 @@ export default function ContactForm(): React.ReactElement {
                 data-test-id="contact-message-input"
             />
             <MarginSpacer size={20} />
-            <SendButton
-                variant="contained"
-                color="secondary"
-                onClick={() => {
-                    let isFormFilled = true
-                    let errorMessage = 'Form has not been completed.\nEmpty fields: '
+            <CenterFlex>
+                <SendButton
+                    variant="contained"
+                    color="secondary"
+                    onClick={() => {
+                        let isFormFilled = true
+                        let errorMessage = 'Form has not been completed.\nEmpty fields: '
 
-                    const addError = (field: string) => {
-                        errorMessage += `${field} `
-                        isFormFilled = false
-                    }
-                    if (!name) addError('name')
-                    if (!email) addError('email')
-                    if (!message) addError('message')
+                        const addError = (field: string) => {
+                            errorMessage += `${field} `
+                            isFormFilled = false
+                        }
+                        if (!name) addError('name')
+                        if (!email) addError('email')
+                        if (!message) addError('message')
 
-                    if (!isFormFilled) {
-                        setError(errorMessage)
-                        return
-                    }
+                        if (!isFormFilled) {
+                            setError(errorMessage)
+                            return
+                        }
 
-                    if (canClickSend) {
-                        setCanClickSend(false)
-                        window.setTimeout(() => {
-                            setCanClickSend(true)
-                        }, 4000)
-                        sendEmails()
-                    }
-                }}
-                data-test-id="contact-submit-button"
-            >
-                SEND
-            </SendButton>
-        </>
+                        if (canClickSend) {
+                            setCanClickSend(false)
+                            window.setTimeout(() => {
+                                setCanClickSend(true)
+                            }, 4000)
+                            sendEmails()
+                        }
+                    }}
+                    data-test-id="contact-submit-button"
+                >
+                    SEND
+                </SendButton>
+            </CenterFlex>
+        </div>
     )
 }

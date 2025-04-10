@@ -13,6 +13,8 @@ export const TextField = styled(MuiTextField)`
     )}
 `
 
+export const SendButtonContainer = styled.div``
+
 export const SendButton = styled(ResponsiveButton)`
     ${mediaQueriesIncludingDefault(
         (multiplier) => `

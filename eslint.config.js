@@ -8,7 +8,7 @@ const prettierConfig = require("eslint-config-prettier");
 
 module.exports = [
     {
-        files: ["src/**/*.{ts,tsx,json,js}"],
+        files: ["cypress/**/*.{ts,tsx,json,js}", "src/**/*.{ts,tsx,json,js}"],
         languageOptions: {
             parser: tsparser,
             parserOptions: {
