@@ -1,5 +1,8 @@
 declare let env: any
 
+let environment = 'prod'
+if (['test', 'development'].includes(env?.ENVIRONMENT)) environment = 'development'
+
 const devConfig = {
     api: {
         host: 'api.kblue-dev.io',
@@ -7,6 +10,7 @@ const devConfig = {
         port: 30001,
         url: 'https://api.kblue-dev.io:30001',
     },
+    baseUrl: 'https://www.kblue-dev.io:30001',
 }
 
 const prodConfig = {
@@ -16,13 +20,14 @@ const prodConfig = {
         port: 443,
         url: 'https://api.kblue.io',
     },
+    baseUrl: 'https://www.kblue.io',
 }
 
 let envConfig = prodConfig
-if (import.meta.env.VITE_APP_ENV === 'development') envConfig = devConfig
+if (environment === 'development') envConfig = devConfig
 
 const combinedConfig = {
-    lastUpdated: env.LAST_UPDATED,
+    lastUpdated: env?.LAST_UPDATED,
     ...envConfig,
 }
 

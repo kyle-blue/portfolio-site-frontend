@@ -6,10 +6,12 @@
     "author": "Kyle Doidge <kyle.blue.doidge@gmail.com>",
     "license": "MIT",
     "main": "src/index.tsx",
+    "type": "module",
     "scripts": {
-        "start": "VITE_APP_ENV=development vite --debug serve",
-        "build": "VITE_APP_ENV=production vite build",
-        "test": "VITE_APP_ENV=test vitest run"
+        "start": "ENVIRONMENT=development vite --debug serve",
+        "build": "ENVIRONMENT=production vite build",
+        "test": "ENVIRONMENT=test vitest run",
+        "cypress:local": "ENVIRONMENT=test cypress open"
     },
     "eslintConfig": {
         "extends": [
@@ -70,6 +72,8 @@
         "@typescript-eslint/eslint-plugin": "^8.26.0",
         "@typescript-eslint/parser": "^8.26.0",
         "browserslist": "^4.24.4",
+        "cypress": "^14.3.0",
+        "cypress-vite": "^1.6.0",
         "eslint": "^9.21.0",
         "eslint-config-prettier": "^10.0.2",
         "eslint-plugin-prettier": "^5.2.3",
