@@ -154,77 +154,75 @@ export default function Root({}: Props) {
                     <Title id="projects">RECENT PROJECTS</Title>
                 </ScrollAnimation>
                 <ScrollAnimation animateOnce animateIn="fadeInTop">
-                    <Projects data-test-id="projects-container">
-                        <div data-test-id="projects-elements">
-                            <GptProject
-                                title={'MINI GPT - [IN PROGRESS]'}
-                                description={'Simple GPT chatbot trained on the Common Crawl dataset.'}
-                                uses={['python', 'nodejs', 'react', 'postgres']}
-                                layout={isMobile ? 'tall' : 'wide'}
-                                backgroundImage={gptOverlay}
-                                buttons={[
-                                    {
-                                        text: 'VIDEO',
-                                        action: () => navigate(Paths.IN_PROGRESS),
-                                    },
-                                    {
-                                        text: 'GITHUB',
-                                        action: () => navigate(Paths.IN_PROGRESS),
-                                    },
-                                    {
-                                        text: 'GO TO SITE',
-                                        action: () => navigate(Paths.IN_PROGRESS),
-                                    },
-                                ]}
-                            />
-                            <ScrollAnimation animateOnce animateIn="fadeInTop">
-                                <LowerProjectsContainer>
-                                    <PortfolioProject
-                                        title={'PORTFOLIO SITE'}
-                                        description={
-                                            '(This !) - Responsive, mobile friendly React portfolio site with rust tcp http backend (made from scratch as a showcase) and scalable k8s archetecture.'
-                                        }
-                                        uses={['rust', 'react', 'kubernetes', 'docker', 'helm']}
-                                        layout={'tall'}
-                                        backgroundImage={portfolioOverlay}
-                                        buttons={[
-                                            {
-                                                text: 'VIDEO',
-                                                action: () => (window.location.href = 'https://www.youtube.com/watch?v=5bxGmh4ANnk'),
-                                            },
-                                            {
-                                                text: 'GITHUB',
-                                                action: () =>
-                                                    (window.location.href = 'https://github.com/kyle-blue/portfolio-site-infrastructure'),
-                                            },
-                                        ]}
-                                    />
-                                    <CoinProject
-                                        title={'MINI COIN - [IN PROGRESS]'}
-                                        description={
-                                            'Experimental cryptocurrency minted on the Etherium (ERC-20) network that uses proof-of-stake.'
-                                        }
-                                        uses={['python', 'nodejs', 'react', 'postgres']}
-                                        layout={'tall'}
-                                        backgroundImage={coinOverlay}
-                                        buttons={[
-                                            {
-                                                text: 'VIDEO',
-                                                action: () => navigate(Paths.IN_PROGRESS),
-                                            },
-                                            {
-                                                text: 'GITHUB',
-                                                action: () => navigate(Paths.IN_PROGRESS),
-                                            },
-                                            {
-                                                text: 'BLOCKCHAIN',
-                                                action: () => navigate(Paths.IN_PROGRESS),
-                                            },
-                                        ]}
-                                    />
-                                </LowerProjectsContainer>
-                            </ScrollAnimation>
-                        </div>
+                    <Projects data-test-id="projects">
+                        <GptProject
+                            title={'MINI GPT - [IN PROGRESS]'}
+                            description={'Simple GPT chatbot trained on the Common Crawl dataset.'}
+                            uses={['python', 'nodejs', 'react', 'postgres']}
+                            layout={isMobile ? 'tall' : 'wide'}
+                            backgroundImage={gptOverlay}
+                            buttons={[
+                                {
+                                    text: 'VIDEO',
+                                    action: () => navigate(Paths.IN_PROGRESS),
+                                },
+                                {
+                                    text: 'GITHUB',
+                                    action: () => navigate(Paths.IN_PROGRESS),
+                                },
+                                {
+                                    text: 'GO TO SITE',
+                                    action: () => navigate(Paths.IN_PROGRESS),
+                                },
+                            ]}
+                        />
+                        <ScrollAnimation animateOnce animateIn="fadeInTop">
+                            <LowerProjectsContainer>
+                                <PortfolioProject
+                                    title={'PORTFOLIO SITE'}
+                                    description={
+                                        '(This !) - Responsive, mobile friendly React portfolio site with rust tcp http backend (made from scratch as a showcase) and scalable k8s archetecture.'
+                                    }
+                                    uses={['rust', 'react', 'kubernetes', 'docker', 'helm']}
+                                    layout={'tall'}
+                                    backgroundImage={portfolioOverlay}
+                                    buttons={[
+                                        {
+                                            text: 'VIDEO',
+                                            action: () => (window.location.href = 'https://www.youtube.com/watch?v=5bxGmh4ANnk'),
+                                        },
+                                        {
+                                            text: 'GITHUB',
+                                            action: () =>
+                                                (window.location.href = 'https://github.com/kyle-blue/portfolio-site-infrastructure'),
+                                        },
+                                    ]}
+                                />
+                                <CoinProject
+                                    title={'MINI COIN - [IN PROGRESS]'}
+                                    description={
+                                        'Experimental cryptocurrency minted on the Etherium (ERC-20) network that uses proof-of-stake.'
+                                    }
+                                    uses={['python', 'nodejs', 'react', 'postgres']}
+                                    layout={'tall'}
+                                    backgroundImage={coinOverlay}
+                                    buttons={[
+                                        {
+                                            text: 'VIDEO',
+                                            action: () => navigate(Paths.IN_PROGRESS),
+                                        },
+                                        {
+                                            text: 'GITHUB',
+                                            action: () => navigate(Paths.IN_PROGRESS),
+                                        },
+                                        {
+                                            text: 'BLOCKCHAIN',
+                                            action: () => navigate(Paths.IN_PROGRESS),
+                                        },
+                                    ]}
+                                />
+                            </LowerProjectsContainer>
+                        </ScrollAnimation>
                     </Projects>
                 </ScrollAnimation>
 

@@ -7,7 +7,7 @@ interface ElementToCheck {
 const elementsToCheckAreVisible: ElementToCheck[] = [
     { child: 'header-container' },
     { child: 'expertise-container' },
-    { child: 'projects-elements', parent: 'projects-container' },
+    { child: 'projects' },
     { child: 'experience-elements', parent: 'experience-container' },
     { child: 'contact-form' },
     { child: 'footer-elements' },
