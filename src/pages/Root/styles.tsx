@@ -8,7 +8,6 @@ import {
     mediaQueryDesktop,
     mediaQueryLaptop,
     mediaQueryMobile,
-    ScreenMultipliers,
     ScreenWidths,
 } from '../../utils/mobile'
 

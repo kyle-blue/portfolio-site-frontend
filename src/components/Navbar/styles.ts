@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { palette } from '../../theme'
-import { mediaQueries, mediaQueriesIncludingDefault } from '../../utils/mobile'
+import { mediaQueriesIncludingDefault } from '../../utils/mobile'
 import { IconButton } from '@mui/material'
 import HamburgerIcon from 'hamburger-react'
 

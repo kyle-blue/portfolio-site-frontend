@@ -12,10 +12,6 @@ function randomHex(length: number = 16): string {
     return result
 }
 
-function boxAsStr(box: DOMRect) {
-    return `${box.toJSON().toString()}`
-}
-
 Cypress.Commands.add('getByTestId' as any, (id: string) => {
     return cy.get(`[data-test-id="${id}"]`)
 })
