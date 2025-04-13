@@ -1,0 +1,71 @@
+{
+  "mobile": [
+    {
+      "name": "iPhone SE",
+      "width": 320,
+      "height": 568
+    },
+    {
+      "name": "iPhone 8",
+      "width": 375,
+      "height": 667
+    },
+    {
+      "name": "iPhone 14 Pro",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "Pixel 6 Pro",
+      "width": 412,
+      "height": 915
+    },
+    {
+      "name": "Nexus 7 Port.",
+      "width": 600,
+      "height": 960
+    },
+    {
+      "name": "iPad Mini Port.",
+      "width": 768,
+      "height": 1024
+    }
+  ],
+  "desktop": [
+    {
+      "name": "720p HD",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "name": "Laptop HD",
+      "width": 1366,
+      "height": 768
+    },
+    {
+      "name": "HD+",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "name": "1080p FHD",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "name": "1440p QHD",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "name": "QHD+",
+      "width": 3200,
+      "height": 1800
+    },
+    {
+      "name": "4K UHD",
+      "width": 3840,
+      "height": 2160
+    }
+  ]
+}

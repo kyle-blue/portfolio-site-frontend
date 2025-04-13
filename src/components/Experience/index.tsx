@@ -36,6 +36,7 @@ interface JobInfo {
 
 interface Props {
     jobs: JobInfo[]
+    [_: string]: any
 }
 interface JobProps {
     job: JobInfo
@@ -75,7 +76,7 @@ const Job = ({ job, i, isMobile, iconBoxWidth }: JobProps) => {
     )
 }
 
-export default function Experience({ jobs }: Props): React.ReactElement {
+export default function Experience({ jobs, ...rest }: Props): React.ReactElement {
     const screenWidth = useScreenWidth()
     const multiplier = getCurrentScreenMultiplier(screenWidth)
     const isMobile = isMobileFunc(screenWidth)
@@ -108,7 +109,7 @@ export default function Experience({ jobs }: Props): React.ReactElement {
         return (
             <>
                 {JobModal}
-                <MainContainer numElements={jobs.length}>
+                <MainContainer numElements={jobs.length} {...rest}>
                     {jobs.map((job, i) => (
                         <Job job={job} i={i} key={job.title} iconBoxWidth={iconBoxWidth} isMobile={isMobile} />
                     ))}
@@ -130,7 +131,7 @@ export default function Experience({ jobs }: Props): React.ReactElement {
     return (
         <>
             {JobModal}
-            <MainContainer numElements={jobs.length}>
+            <MainContainer numElements={jobs.length} {...rest}>
                 {memoizedJobs.map((job, i) => (
                     <React.Fragment key={job.title}>
                         <Job job={job} i={i} key={job.title} iconBoxWidth={iconBoxWidth} isMobile={isMobile} />

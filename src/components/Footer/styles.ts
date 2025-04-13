@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { mediaQueriesIncludingDefault } from '../../utils/mobile'
+import { mediaQueryMobile } from '../../utils/mobile'
 
 export const MainContainer = styled.footer`
     width: 100%;
@@ -30,6 +31,12 @@ export const ContactContainer = styled.div`
         (multiplier) => `
         width: ${500 * multiplier}px;
         font-size: ${16 * multiplier}px;
+        gap: ${20 * multiplier}px;
     `,
     )}
+    ${mediaQueryMobile(`
+        width: unset;
+        flex-direction: column; 
+        gap: 0px;
+    `)}
 `

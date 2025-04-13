@@ -8,6 +8,7 @@ import {
     mediaQueryDesktop,
     mediaQueryLaptop,
     mediaQueryMobile,
+    ScreenMultipliers,
     ScreenWidths,
 } from '../../utils/mobile'
 
@@ -15,7 +16,7 @@ export const RootContainer = styled.main`
     position: relative;
     height: fit-content;
     overflow: clip;
-    width: 100%;
+    width: 100vw;
     background: rgba(52, 43, 55, 0.6);
     background: linear-gradient(180deg, rgba(37, 197, 130, 0.2) -10%, rgba(210, 182, 236, 0.3) 110%);
     z-index: 0;
@@ -81,7 +82,6 @@ export const HomeImage = ({ className }: { className?: string }) => (
 
 export const HomeHeadingContainer = styled.div`
     text-align: center;
-    // TODO: when mobilising get this to work for all screen sizes
     height: 850px;
     justify-content: center;
     align-items: center;
@@ -146,7 +146,6 @@ export const HomeHeadingContainer = styled.div`
     ${mediaQueriesIncludingDefault(
         (multiplier) => `
         height: ${750 * multiplier}px;
-        padding: 0 ${30 * multiplier}px;
 
 
         & h1 {
@@ -179,7 +178,25 @@ export const HomeHeadingContainer = styled.div`
 
     ${mediaQueryMobile(`
         & h1 {
-            letter-spacing: 8px;
+            letter-spacing: 7px;
+            font-size: 60px;
+            padding: 0 20px;
+        }
+        & h2 {
+            letter-spacing: 4px;
+            padding: 0 20px;
+        }
+        & h3 {
+            letter-spacing: 3px;
+            padding: 0 20px;
+        }
+        & h4 {
+            letter-spacing: 3px;
+            padding: 0 20px;
+        }
+        & h5 {
+            letter-spacing: 3px;
+            padding: 0 20px;
         }
     `)}
 `
@@ -235,7 +252,7 @@ export const PlaceIcon = styled(Place)`
     )}
 `
 
-export const ProjectsContainer = styled.div`
+export const Projects = styled.div`
     display: flex;
     flex-direction: column;
     padding: 0;

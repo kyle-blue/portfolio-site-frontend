@@ -39,9 +39,9 @@ export default function Navbar({ elements }: Props): React.ReactElement {
     if (isMobile) {
         return (
             <>
-                <CenterHorizontalFlex style={{ height: 'auto' }}>
+                <CenterHorizontalFlex style={{ height: 'auto' }} data-test-id="navigation-bar">
                     <MainContainer flexDirection={'column'}>
-                        <MenuContainer isMenuOpen={isMenuOpen} ref={menuRef}>
+                        <MenuContainer isMenuOpen={isMenuOpen} ref={menuRef} data-test-id="navigation-bar-elements">
                             {elements.map(({ title, action }) => (
                                 <MenuItem
                                     key={title.toString()}
@@ -66,6 +66,7 @@ export default function Navbar({ elements }: Props): React.ReactElement {
                         setIsMenuOpen(!isMenuOpen)
                         e.stopPropagation()
                     }}
+                    data-test-id="navigation-hamburger"
                 >
                     <Hamburger toggled={isMenuOpen} onToggle={(val) => setIsMenuOpen(val)} color="#ffffff" size={25} />
                 </HamburgerContainer>
@@ -74,8 +75,8 @@ export default function Navbar({ elements }: Props): React.ReactElement {
     }
 
     return (
-        <CenterHorizontalFlex style={{ height: 'auto' }}>
-            <MainContainer flexDirection={'row'}>
+        <CenterHorizontalFlex style={{ height: 'auto' }} data-test-id="navigation-bar">
+            <MainContainer flexDirection={'row'} data-test-id="navigation-bar-elements">
                 {elements.map(({ title, action }) => (
                     <div onClick={action} key={title.toString()}>
                         <ButtonBase style={{ color: 'rgba(255, 255, 255, 0.2)' }}>

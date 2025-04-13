@@ -1,9 +1,11 @@
 {
     "compilerOptions": {
-        "target": "es5",
-        "lib": ["es5", "dom"],
+        "target": "esnext",
+        "lib": ["esnext", "dom"],
         "sourceMap": true,
-        "types": ["cypress", "node", "./support/index.d.ts"]
+        "types": ["cypress", "node", "./support/index.d.ts"],
+        "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": true
     },
     "include": ["**/*.ts"]
 }

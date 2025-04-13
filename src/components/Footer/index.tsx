@@ -1,20 +1,22 @@
 import React from 'react'
-import { Spacer } from '../utility/Spacer'
 import { MainContainer, ContactContainer } from './styles'
 
 export default function Footer(): React.ReactElement {
     return (
         <MainContainer>
-            <ContactContainer>
+            <div data-test-id="footer-elements">
+                <ContactContainer>
+                    <p>
+                        <b>Contact Email:</b>
+                    </p>
+                    <p>kyle.blue.doidge@gmail.com</p>
+                </ContactContainer>
                 <p>
-                    <b>Contact Email</b>:{'      '}kyle.blue.doidge@gmail.com
+                    © copyright
+                    <br />
+                    Kyle Doidge - 2025
                 </p>
-            </ContactContainer>
-            <p>
-                © copyright
-                <br />
-                Kyle Doidge - 2025
-            </p>
+            </div>
         </MainContainer>
     )
 }
