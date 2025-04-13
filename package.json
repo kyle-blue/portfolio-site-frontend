@@ -10,6 +10,7 @@
         "start": "ENVIRONMENT=development vite --debug serve",
         "build": "ENVIRONMENT=production vite build",
         "test": "ENVIRONMENT=test vitest run",
+        "test:e2e": "ENVIRONMENT=test cypress run",
         "cypress:local": "ENVIRONMENT=test cypress open"
     },
     "eslintConfig": {

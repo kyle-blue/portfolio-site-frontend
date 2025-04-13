@@ -1,29 +1,39 @@
-name: "Quality Assurance"
+name: 'Quality Assurance'
 
 on:
-  pull_request:
-    branches: [main]
-  workflow_call: {}
+    pull_request:
+        branches: [main]
+    workflow_call: {}
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: "22.13.1"
-      - run: corepack enable
-      - run: yarn
-      - run: yarn test
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: "22.13.1"
-      - run: corepack enable
-      - run: yarn
-      - run: yarn eslint
-      - run: yarn prettier src --check
+    unit_test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: '22.13.1'
+            - run: corepack enable
+            - run: yarn
+            - run: yarn test
+    e2e_test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: '22.13.1'
+            - run: corepack enable
+            - run: yarn
+            - run: yarn test:e2e
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: '22.13.1'
+            - run: corepack enable
+            - run: yarn
+            - run: yarn eslint
+            - run: yarn prettier src --check
