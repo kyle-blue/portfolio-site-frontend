@@ -1,8 +1,9 @@
 declare let env: any
 
-let environment = 'prod'
-if (['test', 'development'].includes(env?.ENVIRONMENT)) environment = 'development'
-
+let environment: 'prod' | 'test' | 'staging' | 'development' = 'prod'
+if (env?.ENVIRONMENT) {
+    environment = env.ENVIRONMENT as any
+}
 const devConfig = {
     api: {
         host: 'api.kblue-dev.io',
@@ -11,6 +12,7 @@ const devConfig = {
         url: 'https://api.kblue-dev.io:30001',
     },
     baseUrl: 'https://www.kblue-dev.io:30001',
+    environment,
 }
 
 const prodConfig = {
@@ -21,10 +23,11 @@ const prodConfig = {
         url: 'https://api.kblue.io',
     },
     baseUrl: 'https://www.kblue.io',
+    environment,
 }
 
 let envConfig = prodConfig
-if (environment === 'development') envConfig = devConfig
+if (['test', 'development'].includes(environment)) envConfig = devConfig
 
 const combinedConfig = {
     lastUpdated: env?.LAST_UPDATED,

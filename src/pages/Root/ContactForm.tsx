@@ -35,6 +35,7 @@ export default function ContactForm({ ...rest }: Props): React.ReactElement {
     return (
         <div {...rest}>
             <Snackbar
+                role="snackbar"
                 type="error"
                 open={!!error}
                 message={error}
@@ -43,6 +44,7 @@ export default function ContactForm({ ...rest }: Props): React.ReactElement {
                 data-test-id="contact-error-snackbar"
             />
             <Snackbar
+                role="snackbar"
                 type="success"
                 open={!!successMessage}
                 message={successMessage}
