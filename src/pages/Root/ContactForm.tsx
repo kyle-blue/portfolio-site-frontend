@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import { SendButton, TextField } from './ContactFormStyles'
 import { MarginSpacer } from '../../components/utility/Spacer'
 import Snackbar from '../../components/Snackbar'
-import Axios from 'axios'
-import config from '../../config'
 import { CenterFlex } from '@/components/utility/CenterFlex'
+import { sendEmail } from '@/api/email'
 
 interface Props {
     [_: string]: any
@@ -20,11 +19,7 @@ export default function ContactForm({ ...rest }: Props): React.ReactElement {
     const [canClickSend, setCanClickSend] = useState(true)
 
     const sendEmails = async () => {
-        const response = await Axios.post(`${config.api.url}/api/v1/send_email`, {
-            name,
-            email,
-            message,
-        })
+        const response = await sendEmail({ name, email, message })
         if (response.status === 200) {
             setSuccessMessage('Email successfully sent.\nEmail confirmation also sent to your email.')
         } else {
