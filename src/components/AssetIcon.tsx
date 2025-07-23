@@ -23,6 +23,8 @@ import TypescriptIcon from '../assets/svg/typescript.svg'
 import DatastoreIcon from '../assets/svg/datastore.svg'
 import VueIcon from '../assets/svg/vue.svg'
 import MoreIcon from '../assets/svg/more.svg'
+import MilvusIcon from '../assets/svg/milvus.svg'
+import GoIcon from '../assets/svg/go.svg'
 import { Apps } from '@mui/icons-material'
 import { mediaQueriesIncludingDefault } from '../utils/mobile'
 
@@ -72,6 +74,10 @@ function getIconByName(name: string) {
             return VueIcon
         case 'more':
             return MoreIcon
+        case 'milvus':
+            return MilvusIcon
+        case 'go':
+            return GoIcon
         default:
             return Apps
     }

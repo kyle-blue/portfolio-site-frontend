@@ -1,15 +1,15 @@
 import PageContainer from '../../components/PageContainer'
 import Navbar from '../../components/Navbar'
 import {
-    CoinProject,
+    BackpropProject,
     ExperienceContainer,
     ExpertiseContainer,
-    GptProject,
+    RagProject,
     HomeHeadingContainer,
     HomeImage,
     LowerProjectsContainer,
     PlaceIcon,
-    PortfolioProject,
+    GptProject,
     Projects,
     RootContainer,
     Title,
@@ -17,9 +17,6 @@ import {
 } from './styles'
 import ExpertiseColumn from '../../components/ExpertiseColumn'
 import { MarginSpacer, Spacer } from '../../components/utility/Spacer'
-import gptOverlay from '../../assets/images/gpt-overlay.png'
-import coinOverlay from '../../assets/images/coin-overlay.png'
-import portfolioOverlay from '../../assets/images/portfolio-overlay.png'
 import Experience from '../../components/Experience'
 import Footer from '../../components/Footer'
 import { useNavigate } from 'react-router-dom'
@@ -70,13 +67,13 @@ export default function Root({}: Props) {
                             <b>FULL STACK</b> SOFTWARE ENGINEER
                         </h2>
                         <h3>
-                            WITH <b>3 YEARS</b> OF INDUSTRY EXPERIENCE
+                            WITH OVER <b>3 YEARS</b> OF INDUSTRY EXPERIENCE
                         </h3>
                         <h4>
-                            AND <b>9 YEARS</b> OF PERSONAL EXPERIENCE
+                            AND OVER <b>9 YEARS</b> OF PERSONAL EXPERIENCE
                         </h4>
                         <h5>
-                            <PlaceIcon /> LONDON, UK
+                            <PlaceIcon /> ESSEX, UK
                         </h5>
                     </HomeHeadingContainer>
                 </ScrollAnimation>
@@ -111,12 +108,20 @@ export default function Root({}: Props) {
                             subtitle={'Experience making performant and secure REST API’s.'}
                             rows={[
                                 {
+                                    icons: ['python'],
+                                    text: 'PYTHON',
+                                },
+                                {
+                                    icons: ['go'],
+                                    text: 'GOLANG',
+                                },
+                                {
                                     icons: ['nodejs', 'javascript', 'typescript'],
                                     text: 'NODE.JS / JAVASCRIPT / TYPESCRIPT',
                                 },
                                 {
-                                    icons: ['rust', 'python'],
-                                    text: 'RUST    PYTHON',
+                                    icons: ['rust'],
+                                    text: 'RUST',
                                 },
                                 {
                                     icons: ['postgres', 'mysql'],
@@ -155,69 +160,96 @@ export default function Root({}: Props) {
                 </ScrollAnimation>
                 <ScrollAnimation animateOnce animateIn="fadeInTop">
                     <Projects data-test-id="projects">
-                        <GptProject
-                            title={'MINI GPT - [IN PROGRESS]'}
-                            description={'Simple GPT chatbot trained on the Common Crawl dataset.'}
-                            uses={['python', 'nodejs', 'react', 'postgres']}
-                            layout={isMobile ? 'tall' : 'wide'}
-                            backgroundImage={gptOverlay}
-                            buttons={[
-                                {
-                                    text: 'VIDEO',
-                                    action: () => navigate(Paths.IN_PROGRESS),
-                                },
-                                {
-                                    text: 'GITHUB',
-                                    action: () => navigate(Paths.IN_PROGRESS),
-                                },
-                                {
-                                    text: 'GO TO SITE',
-                                    action: () => navigate(Paths.IN_PROGRESS),
-                                },
-                            ]}
-                        />
+                        <ScrollAnimation animateOnce animateIn="fadeInTop">
+                            <RagProject
+                                title={'LLM RAG ENGINE - [IN PROGRESS]'}
+                                description={
+                                    'Utilising open source embedding models alongside milvus vector db to help LLMs answer queries for complex systems'
+                                }
+                                uses={['python', 'go', 'postgres', 'milvus', 'kubernetes', 'helm', 'docker']}
+                                layout={isMobile ? 'tall' : 'wide'}
+                                buttons={[]}
+                            />
+                        </ScrollAnimation>
                         <ScrollAnimation animateOnce animateIn="fadeInTop">
                             <LowerProjectsContainer>
-                                <PortfolioProject
-                                    title={'PORTFOLIO SITE'}
+                                <GptProject
+                                    title={'GPT FROM SCRATCH'}
                                     description={
-                                        '(This !) - Responsive, mobile friendly React portfolio site with rust tcp http backend (made from scratch as a showcase) and scalable k8s archetecture.'
+                                        'Created an LLM / GPT trained on the works of shakespeare from scratch, only using core building blocks such as linear layers, and activation functions.'
                                     }
-                                    uses={['rust', 'react', 'kubernetes', 'docker', 'helm']}
+                                    uses={['python']}
                                     layout={'tall'}
-                                    backgroundImage={portfolioOverlay}
                                     buttons={[
                                         {
-                                            text: 'VIDEO',
-                                            action: () => (window.location.href = 'https://www.youtube.com/watch?v=5bxGmh4ANnk'),
-                                        },
-                                        {
                                             text: 'GITHUB',
-                                            action: () =>
-                                                (window.location.href = 'https://github.com/kyle-blue/portfolio-site-infrastructure'),
+                                            action: () => (window.location.href = 'https://github.com/kyle-blue/mini-gpt'),
                                         },
                                     ]}
                                 />
-                                <CoinProject
-                                    title={'MINI COIN - [IN PROGRESS]'}
+                                <BackpropProject
+                                    title={'BACKPROPOGATION ENGINE'}
                                     description={
-                                        'Experimental cryptocurrency minted on the Etherium (ERC-20) network that uses proof-of-stake.'
+                                        'Created a scalar level backpropogation engine and MLP (to test) from scratch without any additional ML dependencies'
                                     }
-                                    uses={['python', 'nodejs', 'react', 'postgres']}
+                                    uses={['python']}
                                     layout={'tall'}
-                                    backgroundImage={coinOverlay}
                                     buttons={[
                                         {
-                                            text: 'VIDEO',
-                                            action: () => navigate(Paths.IN_PROGRESS),
+                                            text: 'GITHUB',
+                                            action: () => (window.location.href = 'https://github.com/kyle-blue/backprop'),
                                         },
+                                    ]}
+                                />
+                            </LowerProjectsContainer>
+                        </ScrollAnimation>
+
+                        <ScrollAnimation animateOnce animateIn="fadeInTop">
+                            <RagProject
+                                title={'PORTFOLIO WEBSITE'}
+                                description={
+                                    '(This !) - Responsive, mobile friendly React portfolio site with rust tcp http backend (made from scratch as a showcase) and scalable k8s archetecture.'
+                                }
+                                uses={['rust', 'react', 'postgres', 'kubernetes', 'helm', 'docker']}
+                                layout={isMobile ? 'tall' : 'wide'}
+                                buttons={[
+                                    {
+                                        text: 'GITHUB',
+                                        action: () => (window.location.href = 'https://github.com/kyle-blue/portfolio-site-infrastructure'),
+                                    },
+                                ]}
+                            />
+                        </ScrollAnimation>
+
+                        <ScrollAnimation animateOnce animateIn="fadeInTop">
+                            <LowerProjectsContainer>
+                                <GptProject
+                                    title={'LLM QUANTISATION'}
+                                    description={
+                                        'Quantising LLMs to compress hyperparameters with minimal reduction in accuracy / increase in loss'
+                                    }
+                                    uses={['python']}
+                                    layout={'tall'}
+                                    buttons={[
                                         {
                                             text: 'GITHUB',
-                                            action: () => navigate(Paths.IN_PROGRESS),
+                                            action: () => (window.location.href = 'https://github.com/kyle-blue/quantise-llms'),
                                         },
+                                    ]}
+                                />
+                                <BackpropProject
+                                    title={'PRINK APP - REACT NATIVE'}
+                                    description={
+                                        'React Native application that aims to make planning events for university students simple. Exclusive to the University of Reading'
+                                    }
+                                    uses={['AWS', 'nodejs', 'react', 'postgres']}
+                                    layout={'tall'}
+                                    buttons={[
                                         {
-                                            text: 'BLOCKCHAIN',
-                                            action: () => navigate(Paths.IN_PROGRESS),
+                                            text: 'APP STORE',
+                                            action: () =>
+                                                (window.location.href =
+                                                    'https://play.google.com/store/apps/details?id=com.prinkapp.frontend&hl=en_GB'),
                                         },
                                     ]}
                                 />

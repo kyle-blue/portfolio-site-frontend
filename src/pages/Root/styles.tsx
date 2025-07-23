@@ -18,9 +18,9 @@ export const RootContainer = styled.main`
     width: 100vw;
     background: rgba(52, 43, 55, 0.6);
     background: linear-gradient(180deg, #01002a 0%, #019ee3 100%);
+    flex-direction: column;
     z-index: 0;
     display: flex;
-    flex-direction: column;
     align-items: center;
 `
 
@@ -110,7 +110,7 @@ export const HomeHeadingContainer = styled.div`
     & h3 {
         color: #ffffff;
         font-size: 16px;
-        font-family: 'Poppins Thin', sans-serif;
+        font-family: 'Poppins', sans-serif;
         font-weight: bolder;
         letter-spacing: 6px;
         margin-bottom: 0;
@@ -123,7 +123,7 @@ export const HomeHeadingContainer = styled.div`
     & h4 {
         color: #ffffff;
         font-size: 15px;
-        font-family: 'Poppins Thin', sans-serif;
+        font-family: 'Poppins', sans-serif;
         font-weight: bolder;
         letter-spacing: 4px;
         margin-bottom: 0;
@@ -290,13 +290,13 @@ export const LowerProjectsContainer = styled.div`
     `)}
 `
 
-export const GptProject = styled(Project)``
+export const RagProject = styled(Project)``
 
-export const PortfolioProject = styled(Project)`
+export const GptProject = styled(Project)`
     flex: 1;
 `
 
-export const CoinProject = styled(Project)`
+export const BackpropProject = styled(Project)`
     flex: 1;
 `
 
