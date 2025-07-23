@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import homeBackground from '../../assets/images/home-background.png'
+import homeBackground from '../../assets/images/home-background.webp'
 import { Place } from '@mui/icons-material'
 import Project from '../../components/Project'
 import {
@@ -17,7 +17,7 @@ export const RootContainer = styled.main`
     overflow: clip;
     width: 100vw;
     background: rgba(52, 43, 55, 0.6);
-    background: linear-gradient(180deg, rgba(37, 197, 130, 0.2) -10%, rgba(210, 182, 236, 0.3) 110%);
+    background: linear-gradient(180deg, #01002a 0%, #019ee3 100%);
     z-index: 0;
     display: flex;
     flex-direction: column;
@@ -27,8 +27,8 @@ export const RootContainer = styled.main`
 export const UnderBackground = styled.div`
     position: fixed;
     width: 100%;
-    background: rgb(121, 173, 157);
-    background: linear-gradient(180deg, #a3659b 0%, #997cbe 100%);
+    // background: rgb(121, 173, 157);
+    // background: linear-gradient(180deg, #01002a 0%, #019ee3 100%);
     z-index: -4;
     height: 100%;
 `
@@ -36,7 +36,6 @@ export const UnderBackground = styled.div`
 const HomeImageOuter = styled.div`
     position: relative;
     height: 0px;
-    background: red;
 
     overflow: visible;
     animation-duration: 1s;
