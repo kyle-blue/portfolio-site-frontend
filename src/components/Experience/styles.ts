@@ -55,7 +55,6 @@ export const JobBox = styled(ScrollAnimation)<{ num: number }>`
         grid-column: 1 / span 1;
         margin-left: auto;
         margin-right: auto;
-        background: #bea4ce;
         z-index: 5;
     `)}
 `

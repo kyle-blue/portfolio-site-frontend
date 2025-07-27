@@ -88,7 +88,6 @@ export default function Experience({ jobs, ...rest }: Props): React.ReactElement
     const memoizedJobs = useMemo(() => jobs, [jobs])
 
     const selectedJob = jobs.find((x) => x.title.toLocaleLowerCase().replace(' ', '') === urlHash)
-    console.log(urlHash)
     const JobModal = (
         <Modal
             open={jobs.map((x) => x.title.toLocaleLowerCase().replace(' ', '')).includes(urlHash)}
