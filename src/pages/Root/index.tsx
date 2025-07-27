@@ -276,37 +276,33 @@ export default function Root({}: Props) {
                                 subtitle: '[BOT MITIGATION] - FULL STACK SOFTWARE ENGINEER',
                                 uses: ['javascript', 'typescript', 'vue', 'nodejs', 'python', 'postgres', 'aws', 'docker'],
                                 startDate: 'July 2021',
-                                endDate: 'June 2022',
+                                endDate: 'August 2022',
                                 description: (
                                     <>
                                         <p>
-                                            Primarily B2B bot mitigation and cybersecurity company powered by AI. Liaised directly with
+                                            Primarily B2B bot mitigation and cybersecurity company powered by AI. Worked directly with
                                             established renowned companies to secure contracts and implement integrations for specialised
-                                            use cases
+                                            use cases{' '}
                                         </p>
                                         <ul>
                                             <li>
                                                 Implemented JavaScript edge logic on more than 3 different CDN platforms (Cloudflare,
-                                                Akamai, AWS Cloudfront) to reduce latency and cache database hits{' '}
+                                                Akamai, AWS Cloudfront) to reduce latency and cache database hits
                                             </li>
                                             <li>
                                                 Architected, implemented and led a product integration from scratch for Akamai EdgeWorkers
-                                                to provide compatibility with a customers preferred platform and secure a contract worth
-                                                over $1,000,000{' '}
+                                                to provide compatibility with a customer&#39;s preferred platform and secure a contract
+                                                worth over $1,000,000
                                                 <ul>
                                                     <li>
                                                         Profiled and optimised integration to respect the tight limitations of under 2.5MB
-                                                        memory and 20ms CPU time set by Akamai EdgeWorkers{' '}
+                                                        memory and 20ms CPU time set by Akamai EdgeWorkers
                                                     </li>
                                                 </ul>
                                             </li>
                                             <li>
-                                                Coordinated with 3 QA Engineers among the wider team of around 10-15 to ensure work was
-                                                testable early in the SDLC{' '}
-                                            </li>
-                                            <li>
                                                 Communicated and collaborated with clients (B2B) to fix and diagnose issues regarding setup
-                                                and implementation of integrations on the platform{' '}
+                                                and implementation of integrations on the platform
                                             </li>
                                             <li>
                                                 Performed rigorous distributed load testing for the new Akamai integration ensuring the
@@ -353,52 +349,48 @@ export default function Root({}: Props) {
                                     'kubernetes',
                                 ],
                                 startDate: 'August 2022',
-                                endDate: 'December 2023',
+                                endDate: 'April 2024',
                                 description: (
                                     <>
                                         <p>
-                                            Conducted amongst a diverse, talented development team of 10 (amongst other teams) in the KYC
-                                            sector. Acquired by Moody’s Analytics during incumbency. Embarked on major projects to meet
-                                            acquisition demands
+                                            Conducted amongst a diverse, talented development team in the KYC sector. Acquired by Moody’s
+                                            Analytics during tenure. Embarked on major projects to meet acquisition demands{' '}
                                         </p>
                                         <ul>
                                             <li>
                                                 Led a project from beginning to end to fully isolate integration tests in the largest
-                                                producing:{' '}
+                                                producing:
                                                 <ul>
                                                     <li>
-                                                        Approximately a 30% reduction in re-run tests (simultaneous tests would
-                                                        collide){' '}
+                                                        Approximately a 30% reduction in re-run tests (simultaneous tests would collide)
                                                     </li>
-                                                    <li>Around 50% increased integration test speeds due to additional parallelism </li>
+                                                    <li>Around 50% increased integration test speeds due to additional parallelism</li>
                                                 </ul>
                                             </li>
                                             <li>
-                                                Practised Test Driven Development to enforce robust code and maintain 80% test code
-                                                coverage{' '}
+                                                Practised Test Driven Development to enforce robust code and maintain 80% test code coverage
                                             </li>
                                             <li>
                                                 Migrated an old configuration system to a new graph (DAG) based versioned system in Rust
-                                                which supports more than 1 simultaneous users &amp; provides more complete validation{' '}
+                                                which supports multiple simultaneous users &amp; provides more complete validation
                                                 <ul>
                                                     <li>
                                                         Led to a drastic reduction in customer issues related to copying configuration
-                                                        across different environments{' '}
+                                                        across different environments
                                                     </li>
                                                 </ul>
                                             </li>
                                             <li>
                                                 Modernized configuration service&#39;s frontend, improving code maintainability and user
-                                                experience{' '}
+                                                experience
                                             </li>
                                             <li>
                                                 Monitored system services through Grafana, Loki, Retool, and Datadog. Rapidly resolved and
-                                                deployed fixes to critical issues and vulnerabilities to ensure over 99.9% system
-                                                uptime{' '}
+                                                deployed fixes to critical issues and vulnerabilities to ensure over 99.9% system uptime
                                             </li>
                                             <li>
                                                 Directed core ceremonies such as standup, retrospectives, post-incident meetings, support
-                                                handover, and new feature showcases
+                                                handover, and new feature showcases{' '}
                                             </li>
                                         </ul>
                                         <p>
@@ -430,34 +422,26 @@ export default function Root({}: Props) {
                                 endDate: 'January 2025',
                                 description: (
                                     <>
-                                        <p>
-                                            Part of a small development team for a budding new music AI startup. B2C revenue grew by over
-                                            200% during tenure
-                                        </p>
+                                        <p>Part of a small development team for a budding new music AI startup.</p>
                                         <ul>
                                             <li>
-                                                Engineered a Cypress-based automated integration test suite, resulting in a 40% reduction in
-                                                critical platform errors and a 25% faster release cycle{' '}
+                                                Research into using natural language prompts to extract mixing / mastering preferences,
+                                                allowing complex instructions without a complex interface
                                             </li>
                                             <li>
-                                                Investigated and resolved escalated customer-reported software bugs and platform issues
-                                                weekly, achieving a 95% satisfaction rating and directly improving the user experience{' '}
+                                                Revamped the architecture of a critical legacy system which was crippled due to tech debt;
+                                                making core components modular and implementing modern design patterns
+                                            </li>
+                                            <li>
+                                                Engineered a Cypress automated integration test suite, providing confidence in our
+                                                continuous deployment for a growing user-base
+                                            </li>
+                                            <li>
+                                                Actively monitored, identified, and fixed critical vulnerabilities and security concerns
                                             </li>
                                             <li>
                                                 Interviewed and directly corresponded with customers to obtain insightful feedback and steer
                                                 future initiatives{' '}
-                                            </li>
-                                            <li>
-                                                Refactored and optimised key components of the site to enhance responsiveness and ensure
-                                                seamless mobile compatibility using best practices{' '}
-                                            </li>
-                                            <li>
-                                                Took initiative in traditionally distinct roles such as UI/UX and marketing strategy as a
-                                                result of smaller team size (8 people){' '}
-                                            </li>
-                                            <li>
-                                                Revamped the architecture of a critical legacy system, refactoring core components to be
-                                                modular and implementing modern design patterns
                                             </li>
                                         </ul>
                                         <p>
